@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   WATERFALL — design tokens
+   Monochrome, blue-tinted neutrals. One signal blue, used like punctuation.
+   Neutrals carry a trace of the brand hue (258) so nothing reads as dead gray.
+   ========================================================================= */
+
+@theme {
+  /* --- Ink scale: the entire monochrome range, tinted toward the brand hue --- */
+  --color-ink-1000: oklch(0.108 0.008 258);
+  --color-ink-950: oklch(0.145 0.008 258);
+  --color-ink-900: oklch(0.178 0.009 258);
+  --color-ink-850: oklch(0.208 0.01 258);
+  --color-ink-800: oklch(0.246 0.011 258);
+  --color-ink-700: oklch(0.325 0.011 258);
+  --color-ink-600: oklch(0.44 0.011 258);
+  --color-ink-500: oklch(0.56 0.011 258);
+  --color-ink-400: oklch(0.672 0.01 258);
+  --color-ink-300: oklch(0.775 0.008 258);
+  --color-ink-200: oklch(0.86 0.006 258);
+  --color-ink-100: oklch(0.925 0.005 258);
+  --color-ink-50: oklch(0.972 0.004 258);
+
+  /* --- The one accent. Punctuation, not decoration. --- */
+  --color-signal: oklch(0.645 0.185 258);
+  --color-signal-bright: oklch(0.735 0.163 258);
+  --color-signal-deep: oklch(0.48 0.17 258);
+
+  /* --- Semantic aliases --- */
+  --color-canvas: var(--color-ink-950);
+  --color-canvas-sunk: var(--color-ink-1000);
+  --color-canvas-raised: var(--color-ink-900);
+
+  /* --- Typography --- */
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Fluid display scale — clamp() so it breathes on large screens */
+  --text-display: clamp(2.75rem, 1.2rem + 6.4vw, 8.5rem);
+  --text-display--line-height: 0.9;
+  --text-display--letter-spacing: -0.045em;
+
+  --text-headline: clamp(2rem, 0.95rem + 3.9vw, 4.75rem);
+  --text-headline--line-height: 0.98;
+  --text-headline--letter-spacing: -0.035em;
+
+  --text-title: clamp(1.5rem, 1.05rem + 1.5vw, 2.375rem);
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.025em;
+
+  --text-lede: clamp(1.0625rem, 0.92rem + 0.62vw, 1.4375rem);
+  --text-lede--line-height: 1.5;
+  --text-lede--letter-spacing: -0.014em;
+
+  --text-meta: 0.6875rem;
+  --text-meta--line-height: 1;
+  --text-meta--letter-spacing: 0.11em;
+
+  /* --- Motion: exponential deceleration only. No bounce, ever. --- */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* --- Rhythm --- */
+  --spacing-gutter: clamp(1.25rem, 0.6rem + 2.6vw, 3.5rem);
+  --spacing-section: clamp(6rem, 3rem + 11vw, 14rem);
+}
+
+/* Hairline colors kept outside @theme — they are alpha-composited, not palette entries */
+:root {
+  --rule: color-mix(in oklab, var(--color-ink-50) 9%, transparent);
+  --rule-strong: color-mix(in oklab, var(--color-ink-50) 16%, transparent);
+  --rule-faint: color-mix(in oklab, var(--color-ink-50) 5%, transparent);
+
+  --nav-height: 4.5rem;
+
+  color-scheme: dark;
+}
+
+/* ============================================================================
+   Base
+   ========================================================================= */
+
+* {
+  border-color: var(--rule);
+}
+
+html {
+  background-color: var(--color-canvas);
+  /* Lenis drives scrolling; native smooth-scroll would fight it */
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink-200);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background-color: color-mix(in oklab, var(--color-signal) 40%, transparent);
+  color: var(--color-ink-50);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* ============================================================================
+   Utilities
+   ========================================================================= */
+
+@utility shell {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+/* The 12-column grid every section composes against. Asymmetry lives here. */
+@utility grid-shell {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 0.5rem + 1.4vw, 2rem);
+}
+
+@utility rule-t {
+  border-top: 1px solid var(--rule);
+}
+
+@utility rule-b {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Small caps metadata label — indices, years, section kickers */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  line-height: 1;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--color-ink-500);
+  font-weight: 500;
+}
+
+/* Editorial emphasis: exactly one word per headline gets this */
+@utility em-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-ink-50);
+}
+
+/* Very low-contrast field of falling grain — sits under the hero */
+@utility grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================================
+   Keyframes
+   ========================================================================= */
+
+@keyframes wf-fall {
+  0% {
+    transform: translate3d(0, -110%, 0);
+  }
+  100% {
+    transform: translate3d(0, 900%, 0);
+  }
+}
+
+@keyframes wf-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.82);
+  }
+}
+
+@keyframes wf-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes wf-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* ============================================================================
+   Reduced motion — kill everything that moves, keep everything legible
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
