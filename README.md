@@ -126,6 +126,80 @@ a `CNAME` to `cname.vercel-dns.com`. The proxy logic is identical either way.
 
 ---
 
+## Email (hello@waterfalltech.xyz)
+
+Vercel is the registrar and DNS host, but it does **not** host mailboxes. The address the site
+publishes needs a mail provider pointed at it via DNS. The plan is Zoho Mail (free tier: real
+mailbox, so you can reply *as* hello@ rather than from a personal Gmail).
+
+DNS lives at Vercel, so every record below is added with the Vercel CLI, not at a registrar.
+
+### ⚠️ Check your datacenter first
+
+Zoho runs regional datacenters and **the record values differ**. Look at the URL after you sign in:
+
+| Zoho URL      | MX hosts                                     | SPF include        |
+| ------------- | -------------------------------------------- | ------------------ |
+| `zoho.com`    | `mx.zoho.com` / `mx2.zoho.com` / `mx3.zoho.com` | `include:zoho.com` |
+| `zoho.eu`     | `mx.zoho.eu` / `mx2.zoho.eu` / `mx3.zoho.eu`    | `include:zoho.eu`  |
+
+Using the wrong region's hosts breaks mail **silently** — messages are accepted by DNS and then
+rejected. Confirm the region before running anything.
+
+### Steps
+
+1. Sign up at Zoho Mail and add `waterfalltech.xyz` as a domain.
+2. Zoho gives a **verification** record (a `TXT` like `zoho-verification=zb…zmverify.zoho.com`,
+   or a CNAME). Add it — replace the value with the one Zoho actually shows you:
+
+   ```bash
+   vercel dns add waterfalltech.xyz "@" TXT "zoho-verification=PASTE_YOURS" --scope marcosnunes266
+   ```
+
+3. Verify in the Zoho console, then create the `hello@` mailbox.
+4. Add MX (values from the table above — this example assumes the `.com` region):
+
+   ```bash
+   vercel dns add waterfalltech.xyz "@" MX mx.zoho.com  10 --scope marcosnunes266
+   vercel dns add waterfalltech.xyz "@" MX mx2.zoho.com 20 --scope marcosnunes266
+   vercel dns add waterfalltech.xyz "@" MX mx3.zoho.com 50 --scope marcosnunes266
+   ```
+
+5. Add SPF, so your mail isn't filed as spam:
+
+   ```bash
+   vercel dns add waterfalltech.xyz "@" TXT "v=spf1 include:zoho.com ~all" --scope marcosnunes266
+   ```
+
+   Only ever have **one** SPF record on the domain. To add another sender later, merge it into
+   this one (`v=spf1 include:zoho.com include:other.com ~all`) — two SPF records is an error that
+   makes both fail.
+
+6. Enable DKIM in Zoho (Domains → DKIM). It generates a selector and public key; add it:
+
+   ```bash
+   vercel dns add waterfalltech.xyz zmail._domainkey TXT "v=DKIM1; k=rsa; p=PASTE_YOURS" --scope marcosnunes266
+   ```
+
+7. Once SPF and DKIM pass, add DMARC:
+
+   ```bash
+   vercel dns add waterfalltech.xyz _dmarc TXT "v=DMARC1; p=none; rua=mailto:hello@waterfalltech.xyz" --scope marcosnunes266
+   ```
+
+   Start at `p=none` (monitor only). Move to `quarantine` and then `reject` after a few weeks of
+   clean reports — going straight to `reject` can bin your own legitimate mail.
+
+Check the result with `vercel dns ls waterfalltech.xyz --scope marcosnunes266`, and test delivery
+both ways (send *to* hello@, and *from* hello@ to a Gmail address — then check the Gmail
+"Show original" view says SPF/DKIM/DMARC pass).
+
+**Note:** the site has no contact form — the CTA is a plain `mailto:`, so nothing in the app sends
+email. None of the above is needed for the site to work; it's only so the published address
+actually receives.
+
+---
+
 ## Project layout
 
 ```
