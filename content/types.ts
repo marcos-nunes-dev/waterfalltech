@@ -198,6 +198,15 @@ export type Legal = {
   tocLabel: string;
   privacy: LegalDoc;
   terms: LegalDoc;
+  /**
+   * Instrucoes de exclusao de dados, em documento PROPRIO.
+   *
+   * O painel da Meta tem um campo separado para isto — "User Data Deletion" —
+   * ao lado dos campos de politica e termos. Apontar os tres para a mesma URL
+   * e causa de rejeicao: o revisor procura instrucoes acionaveis, nao um
+   * paragrafo dentro de um documento de vinte secoes.
+   */
+  deletion: LegalDoc;
 };
 
 export type Contact = {

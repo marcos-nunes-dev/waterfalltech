@@ -64,12 +64,32 @@ export const legalPtBR: Legal = {
         ],
       },
       {
+        id: "cookies",
+        heading: "Cookies e tecnologias semelhantes",
+        body: [
+          "O site usa **um único cookie**, chamado `waterfall_locale`, que guarda o idioma escolhido no seletor. Ele é estritamente funcional: sem ele, cada visita voltaria ao idioma detectado pelo navegador e ignoraria a sua escolha. Não identifica você e não é compartilhado com ninguém.",
+          "**Não usamos cookies de publicidade, pixels de rastreamento, mapas de calor nem análise comportamental de terceiros.** É por isso que não há aviso de cookies neste site — não há nada a consentir.",
+          "Dentro do Zenda, o token da sua sessão fica no armazenamento local do navegador, para manter você conectada. Sair da conta o apaga.",
+        ],
+      },
+      {
         id: "base-legal",
         heading: "Com que base legal",
         body: [
           "Para dado de saúde, a base é a **tutela da saúde, em procedimento realizado por profissionais de saúde e serviços de saúde** (art. 11, II, “f”) — não consentimento. Isso é deliberado: consentimento pode ser revogado a qualquer momento, e um prontuário que some no meio de um tratamento é risco para o próprio paciente.",
           "Para dados de quem usa a plataforma e para dados cadastrais dos clientes, a base é a **execução de contrato** (art. 7º, V).",
-          "Para segurança, prevenção a fraude e registros de acesso, a base é o **legítimo interesse** (art. 7º, IX), com avaliação de impacto documentada.",
+          "Para segurança e prevenção a fraude, a base é o **legítimo interesse** (art. 7º, IX), com avaliação de impacto documentada.",
+          "Para a guarda de registros de acesso à aplicação, a base é o **cumprimento de obrigação legal** (art. 7º, II): o Marco Civil da Internet (Lei 12.965/2014, art. 15) obriga o provedor de aplicação constituído como pessoa jurídica a manter esses registros por seis meses, sob sigilo e em ambiente controlado.",
+        ],
+      },
+      {
+        id: "criancas",
+        heading: "Crianças e adolescentes",
+        body: [
+          "Pacientes menores de idade existem — pediatria, ortodontia e várias outras especialidades atendem crianças todos os dias. Isso muda o cuidado exigido, e por isso a seção é própria.",
+          "O tratamento de dados de criança e adolescente é feito **sempre no seu melhor interesse** (LGPD art. 14). A base legal continua sendo a tutela da saúde (art. 11, II, “f”), exercida pelo profissional que atende — não um consentimento genérico coletado por nós.",
+          "**Quem exerce os direitos do paciente menor é o pai, a mãe ou o responsável legal**, junto ao médico ou à clínica que o atende.",
+          "O Zenda **não se destina a uso por menores de 18 anos**: nenhuma conta pode ser criada por menor. Também não coletamos dados de criança diretamente — o que chega a nós vem da conversa que o responsável ou o próprio profissional inicia.",
         ],
       },
       {
@@ -124,10 +144,11 @@ export const legalPtBR: Legal = {
           "O prazo é definido pelo controlador, dentro dos limites da lei e da regulamentação profissional. Na ausência de instrução específica:",
         ],
         list: [
-          "**Conversas e fichas:** enquanto durar a relação entre o profissional e o paciente, observado o prazo de guarda de prontuário aplicável.",
-          "**Registros de acesso e auditoria:** conforme a exigência legal aplicável a cada tipo de registro.",
+          "**Conversas e fichas:** enquanto durar a relação entre o profissional e o paciente. Se o controlador entender que algum registro integra o prontuário, aplica-se a regra do conselho profissional — a Resolução CFM 1.821/2007 estabelece guarda mínima de 20 anos a contar do último registro, e guarda permanente para o que estiver arquivado eletronicamente.",
+          "**Registros de acesso à aplicação:** seis meses, por obrigação do Marco Civil da Internet (art. 15). Este prazo não é reduzível a pedido — é exigência legal, não escolha nossa.",
+          "**Registros de auditoria** (quem abriu qual conversa, quando): cinco anos, para sustentar a prestação de contas do art. 37 da LGPD.",
           "**Dados de cadastro de quem usa a plataforma:** até 90 dias após o encerramento da conta.",
-          "**Quando um cliente é encerrado**, os dados daquele médico ou clínica podem ser exportados e depois eliminados a pedido do controlador.",
+          "**Cópias de segurança:** o que é eliminado do sistema ativo pode permanecer em backup por até 30 dias adicionais, sem uso, até a rotação normal das cópias.",
         ],
       },
       {
@@ -137,6 +158,27 @@ export const legalPtBR: Legal = {
           "A LGPD (art. 18) garante confirmação de tratamento, acesso, correção, anonimização, portabilidade, informação sobre compartilhamento e eliminação.",
           "**Se você é paciente:** procure o médico ou a clínica que te atende. É ele o controlador dos seus dados. Se escrever para nós, encaminharemos e avisaremos você de para quem foi.",
           "**Se você usa o Zenda ou é cliente da Waterfall:** escreva para hello@waterfalltech.xyz. Respondemos dentro do prazo legal, sem custo.",
+          "**Você pode peticionar diretamente à ANPD** — Autoridade Nacional de Proteção de Dados — se entender que seus direitos não foram atendidos (art. 18, §1º). Não é preciso passar por nós antes.",
+        ],
+      },
+      {
+        id: "exclusao",
+        heading: "Como pedir a exclusão dos seus dados",
+        body: [
+          "Esta seção é separada porque é a pergunta mais frequente — e porque a resposta muda conforme quem pergunta. Há uma página só com o passo a passo em **/legal/data-deletion**.",
+          "**Se você é paciente:** o pedido vai para o médico ou a clínica que te atende, que é o controlador dos seus dados. Peça a ele por qualquer meio, inclusive pela própria conversa de WhatsApp. Ele executa a exclusão dentro do Zenda. Se escrever para nós por engano, encaminhamos ao controlador e avisamos você para quem foi.",
+          "**Se você usa o Zenda:** peça pela própria conta ou escreva para hello@waterfalltech.xyz a partir do e-mail cadastrado. A conta e os dados associados são eliminados em até 15 dias.",
+          "**Se você é médico ou clínica e quer sair:** quem administra a conta pode exportar tudo e pedir a eliminação. Executamos em até 30 dias.",
+          "Em todos os casos a exclusão é **gratuita**. Sobrevive a ela apenas o que a lei obriga a guardar — os registros de acesso pelo prazo do Marco Civil e o mínimo para comprovar que o pedido foi cumprido.",
+        ],
+      },
+      {
+        id: "automatizado",
+        heading: "Decisões automatizadas",
+        body: [
+          "O Zenda **não toma decisões automatizadas que afetem interesses do paciente**. Não há triagem por algoritmo, classificação de risco clínico nem priorização automática de atendimento.",
+          "O que é automático é operacional e visível: o cálculo da data de retorno a partir do intervalo que o profissional definiu, e a ordenação de listas por quem espera há mais tempo. Toda mensagem enviada ao paciente parte de uma pessoa, ou de uma automação que o profissional configurou e pode desligar.",
+          "Se isso mudar, esta seção muda antes — e o direito de revisão do art. 20 da LGPD será exercível junto ao controlador.",
         ],
       },
       {
@@ -159,7 +201,95 @@ export const legalPtBR: Legal = {
         heading: "Contato",
         body: [
           "Waterfall — CNPJ 42.804.319/0001-10 — Rio de Janeiro, Brasil.",
-          "Encarregado pelo tratamento de dados pessoais: hello@waterfalltech.xyz",
+          "**Encarregado pelo tratamento de dados pessoais** (LGPD art. 41): Marcos Nunes — hello@waterfalltech.xyz. É o canal para dúvidas sobre esta política e para o exercício de direitos por quem tem relação direta conosco.",
+          "**Pacientes devem procurar o médico ou a clínica que os atende**, que é o controlador e nomeia o próprio encarregado.",
+          "**Autoridade Nacional de Proteção de Dados (ANPD):** gov.br/anpd",
+        ],
+      },
+    ],
+  },
+
+  deletion: {
+    slug: "data-deletion",
+    title: "Exclusão de Dados",
+    updatedAt: UPDATED,
+    lede: "Como pedir a exclusão de dados do Zenda, quem deve pedir, e em quanto tempo executamos. Página separada de propósito: quem chega aqui já sabe o que quer.",
+    sections: [
+      {
+        id: "quem-pede",
+        heading: "Primeiro: quem deve pedir a quem",
+        body: [
+          "A resposta muda conforme quem pergunta, e errar o destinatário só atrasa o pedido.",
+          "**Paciente** → peça ao médico ou à clínica que te atende. Ele é o controlador dos seus dados: é ele quem decidiu coletá-los e é ele quem pode apagá-los. A Waterfall apenas opera o sistema em nome dele e não pode apagar dado de paciente por conta própria.",
+          "**Quem usa o Zenda** (atendente, secretária) → peça a nós.",
+          "**Médico ou clínica** que quer encerrar e levar embora os dados → peça a nós, pela pessoa que administra a conta.",
+        ],
+      },
+      {
+        id: "paciente",
+        heading: "Se você é paciente",
+        body: [
+          "Fale com o consultório que te atende. Serve qualquer meio — inclusive responder na própria conversa de WhatsApp: “quero que meus dados sejam apagados”.",
+          "O profissional executa a exclusão dentro do Zenda, e ela alcança as mensagens, a ficha e o histórico de atendimento daquele consultório.",
+          "Se escrever para **hello@waterfalltech.xyz** por engano, nós encaminhamos ao controlador e avisamos você para quem foi. Não decidimos sobre dado que não é nosso — mas também não deixamos o pedido morrer.",
+          "Se você não souber a quem se dirigir, ou se o consultório não responder, escreva para nós assim mesmo. Ajudamos a localizar o controlador.",
+        ],
+      },
+      {
+        id: "usuario",
+        heading: "Se você usa o Zenda",
+        body: [
+          "Escreva para **hello@waterfalltech.xyz** a partir do e-mail cadastrado na conta — é assim que confirmamos que o pedido é seu.",
+        ],
+        list: [
+          "Assunto: “Exclusão de dados”.",
+          "Diga se quer apagar **a sua conta de usuário** ou **a operação inteira**, com os clientes e conversas dela.",
+          "Confirmamos o recebimento em até 2 dias úteis.",
+          "**Executamos em até 15 dias**, e confirmamos por escrito quando terminar.",
+        ],
+      },
+      {
+        id: "cliente",
+        heading: "Se você é médico ou clínica",
+        body: [
+          "Você é o controlador dos dados dos seus pacientes. Pode pedir, a qualquer momento e sem custo:",
+        ],
+        list: [
+          "**Exportação** de tudo que está no Zenda sobre o seu consultório — conversas, fichas, consultas — em formato legível por máquina.",
+          "**Eliminação** desses dados, com prazo de execução de até 30 dias.",
+          "**Exportação antes da eliminação**, que é o caminho normal quando a relação termina: você leva o histórico e nós apagamos a nossa cópia.",
+          "O pedido pode vir de você ou da pessoa que administra sua conta no Zenda. Escreva para hello@waterfalltech.xyz.",
+        ],
+      },
+      {
+        id: "meta",
+        heading: "Dados que estão com a Meta",
+        body: [
+          "As mensagens trafegam pelo WhatsApp, então parte dos dados fica na infraestrutura da Meta — e essa parte **não está sob nosso controle**. Apagar do Zenda não apaga do WhatsApp.",
+          "Para dados que a Meta trata por conta própria, o pedido é com ela, pelos canais dela. Se você desconectar o número do Zenda, deixamos de receber e enviar por ele imediatamente, mas o que já passou pela Meta segue as regras dela.",
+          "O aparelho do médico também guarda a própria cópia das conversas, no aplicativo WhatsApp Business. Essa cópia é dele, no aparelho dele, e se apaga por lá.",
+        ],
+      },
+      {
+        id: "excecoes",
+        heading: "O que não é apagado, e por quê",
+        body: [
+          "A exclusão é ampla, mas não é absoluta — a própria LGPD (art. 16) preserva o que a lei obriga a guardar. Permanecem:",
+        ],
+        list: [
+          "**Registros de acesso à aplicação**, por seis meses, conforme o Marco Civil da Internet (art. 15). É obrigação legal e não pode ser dispensada a pedido.",
+          "**A prova de que o pedido foi cumprido** — data, tipo de pedido e confirmação —, sem o conteúdo apagado. É o que nos permite demonstrar que atendemos você.",
+          "**Dados que o controlador seja obrigado a manter** por regra do conselho profissional, como o prazo de guarda de prontuário quando aplicável.",
+          "**Cópias de segurança** podem conter o dado por até 30 dias adicionais, sem uso, até a rotação normal. Elas não são consultadas para nenhuma outra finalidade.",
+        ],
+      },
+      {
+        id: "contato",
+        heading: "Contato",
+        body: [
+          "**hello@waterfalltech.xyz** — Waterfall, CNPJ 42.804.319/0001-10, Rio de Janeiro, Brasil.",
+          "Encarregado pelo tratamento de dados pessoais: Marcos Nunes.",
+          "Se preferir, você pode peticionar diretamente à **ANPD** (gov.br/anpd) — não é preciso passar por nós antes.",
         ],
       },
     ],

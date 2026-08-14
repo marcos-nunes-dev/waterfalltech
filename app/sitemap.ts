@@ -49,7 +49,7 @@ const ROUTES: Entry[] = [
   // Baixa prioridade e alta necessidade: ninguem procura a politica no Google,
   // mas ela precisa ser rastreavel — o App Review da Meta verifica se o
   // endereco publicado responde.
-  ...(["privacy", "terms"] as const).map((doc) => ({
+  ...(["privacy", "terms", "data-deletion"] as const).map((doc) => ({
     url: (locale: Locale) => absolute(locale, `/legal/${doc}`),
     priority: 0.3,
   })),

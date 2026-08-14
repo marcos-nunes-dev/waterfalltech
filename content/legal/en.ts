@@ -62,12 +62,32 @@ export const legalEn: Legal = {
         ],
       },
       {
+        id: "cookies",
+        heading: "Cookies and similar technologies",
+        body: [
+          "The site sets **one cookie**, `waterfall_locale`, which remembers the language you picked in the switcher. It is strictly functional: without it, every visit would revert to the browser-detected language and ignore your choice. It does not identify you and is shared with no one.",
+          "**We use no advertising cookies, tracking pixels, heatmaps or third-party behavioural analytics.** That is why this site has no cookie banner — there is nothing to consent to.",
+          "Inside Zenda, your session token lives in the browser's local storage to keep you signed in. Signing out clears it.",
+        ],
+      },
+      {
         id: "legal-basis",
         heading: "On what legal basis",
         body: [
           "For health data the basis is **protection of health, in a procedure carried out by health professionals and health services** (art. 11, II, “f”) — not consent. That is deliberate: consent can be withdrawn at any moment, and a record that vanishes mid-treatment is a risk to the patient.",
           "For platform users and client account data, the basis is **performance of a contract** (art. 7, V).",
-          "For security, fraud prevention and access logs, the basis is **legitimate interest** (art. 7, IX), with a documented impact assessment.",
+          "For security and fraud prevention, the basis is **legitimate interest** (art. 7, IX), with a documented impact assessment.",
+          "For retaining application access logs, the basis is **compliance with a legal obligation** (art. 7, II): Brazil's Internet Civil Framework (Law 12.965/2014, art. 15) requires an application provider incorporated as a legal entity to keep those logs for six months, under confidentiality and in a controlled environment.",
+        ],
+      },
+      {
+        id: "children",
+        heading: "Children and adolescents",
+        body: [
+          "Underage patients exist — paediatrics, orthodontics and many other specialties see children every day. That raises the standard of care, which is why this has a section of its own.",
+          "Data about children and adolescents is processed **always in their best interest** (LGPD art. 14). The legal basis remains protection of health (art. 11, II, “f”), exercised by the treating professional — not a blanket consent collected by us.",
+          "**A minor patient's rights are exercised by a parent or legal guardian**, with the doctor or clinic treating them.",
+          "Zenda **is not intended for use by anyone under 18**: no account may be created by a minor. Nor do we collect children's data directly — what reaches us comes from the conversation the guardian or the professional starts.",
         ],
       },
       {
@@ -122,10 +142,11 @@ export const legalEn: Legal = {
           "Retention is set by the controller, within the limits of the law and professional regulation. Absent specific instruction:",
         ],
         list: [
-          "**Conversations and records:** for as long as the professional–patient relationship lasts, subject to the applicable medical record retention period.",
-          "**Access and audit logs:** as required by the law applicable to each type of record.",
+          "**Conversations and records:** for as long as the professional–patient relationship lasts. Where the controller considers a record part of the patient's medical file, the professional council's rule applies — CFM Resolution 1.821/2007 sets a minimum of 20 years from the last entry, and permanent retention for anything archived electronically.",
+          "**Application access logs:** six months, as required by the Internet Civil Framework (art. 15). This period cannot be shortened on request — it is a legal requirement, not our choice.",
+          "**Audit logs** (who opened which conversation, and when): five years, to support the accountability duty in LGPD art. 37.",
           "**Platform user account data:** up to 90 days after the account is closed.",
-          "**When a client relationship ends**, that doctor's or clinic's data can be exported and then erased at the controller's request.",
+          "**Backups:** data erased from the live system may persist in backups for up to 30 further days, unused, until normal rotation.",
         ],
       },
       {
@@ -135,6 +156,27 @@ export const legalEn: Legal = {
           "The LGPD (art. 18) grants confirmation of processing, access, correction, anonymisation, portability, information about sharing, and erasure.",
           "**If you are a patient:** contact the doctor or clinic that treats you. They are the controller of your data. If you write to us, we will forward it and tell you where it went.",
           "**If you use Zenda or are a Waterfall client:** write to hello@waterfalltech.xyz. We respond within the statutory period, free of charge.",
+          "**You may also petition the ANPD directly** — Brazil's National Data Protection Authority — if you believe your rights have not been met (art. 18, §1). You do not have to come to us first.",
+        ],
+      },
+      {
+        id: "deletion",
+        heading: "How to request deletion of your data",
+        body: [
+          "This has its own section because it is the most common question — and because the answer depends on who is asking. A page with the full step-by-step lives at **/legal/data-deletion**.",
+          "**If you are a patient:** the request goes to the doctor or clinic treating you, who is the controller of your data. Ask them by any means, including the WhatsApp conversation itself. They carry out the deletion inside Zenda. If you write to us by mistake, we forward it to the controller and tell you where it went.",
+          "**If you use Zenda:** ask from within the account, or email hello@waterfalltech.xyz from your registered address. The account and associated data are erased within 15 days.",
+          "**If you are a doctor or clinic and want to leave:** whoever administers the account can export everything and request erasure. We carry it out within 30 days.",
+          "In every case deletion is **free of charge**. What survives it is only what the law requires us to keep — access logs for the statutory period, and the minimum needed to evidence that the request was fulfilled.",
+        ],
+      },
+      {
+        id: "automated",
+        heading: "Automated decisions",
+        body: [
+          "Zenda **makes no automated decisions affecting a patient's interests**. There is no algorithmic triage, no clinical risk scoring and no automatic prioritisation of care.",
+          "What is automatic is operational and visible: the return date computed from the interval the professional set, and lists ordered by who has waited longest. Every message sent to a patient originates with a person, or with an automation the professional configured and can switch off.",
+          "If that changes, this section changes first — and the right to review under LGPD art. 20 will be exercisable with the controller.",
         ],
       },
       {
@@ -157,7 +199,96 @@ export const legalEn: Legal = {
         heading: "Contact",
         body: [
           "Waterfall — CNPJ 42.804.319/0001-10 — Rio de Janeiro, Brazil.",
-          "Data protection officer: hello@waterfalltech.xyz",
+          "**Data protection officer** (LGPD art. 41): Marcos Nunes — hello@waterfalltech.xyz. This is the channel for questions about this policy and for rights exercised by anyone with a direct relationship with us.",
+          "**Patients should contact the doctor or clinic treating them**, who is the controller and appoints their own officer.",
+          "**National Data Protection Authority (ANPD):** gov.br/anpd",
+        ],
+      },
+    ],
+  },
+
+  deletion: {
+    slug: "data-deletion",
+    title: "Data Deletion",
+    updatedAt: UPDATED,
+    lede: "How to request deletion of data from Zenda, who should ask whom, and how long it takes. A separate page on purpose: whoever lands here already knows what they want.",
+    sections: [
+      {
+        id: "who-asks",
+        heading: "First: who should ask whom",
+        body: [
+          "The answer depends on who is asking, and sending it to the wrong place only delays things.",
+          "**Patient** → ask the doctor or clinic treating you. They are the controller of your data: they decided to collect it and they can erase it. Waterfall only operates the system on their behalf and cannot erase patient data on its own initiative.",
+          "**Zenda user** (assistant, secretary) → ask us.",
+          "**Doctor or clinic** wanting to leave and take the data → ask us, through whoever administers the account.",
+          LANGUAGE_NOTE,
+        ],
+      },
+      {
+        id: "patient",
+        heading: "If you are a patient",
+        body: [
+          "Contact the practice that treats you. Any channel works — including replying in the WhatsApp conversation itself: “please delete my data”.",
+          "The professional carries out the deletion inside Zenda, covering the messages, the record and the treatment history held by that practice.",
+          "If you write to **hello@waterfalltech.xyz** by mistake, we forward it to the controller and tell you where it went. We do not decide about data that is not ours — but we do not let the request die either.",
+          "If you do not know who to contact, or the practice does not reply, write to us anyway. We will help identify the controller.",
+        ],
+      },
+      {
+        id: "user",
+        heading: "If you use Zenda",
+        body: [
+          "Email **hello@waterfalltech.xyz** from the address registered on the account — that is how we confirm the request is yours.",
+        ],
+        list: [
+          "Subject: “Data deletion”.",
+          "Say whether you want to erase **your user account** or **the whole operation**, with its clients and conversations.",
+          "We acknowledge within 2 business days.",
+          "**We execute within 15 days**, and confirm in writing when it is done.",
+        ],
+      },
+      {
+        id: "client",
+        heading: "If you are a doctor or clinic",
+        body: [
+          "You are the controller of your patients' data. At any time, free of charge, you may request:",
+        ],
+        list: [
+          "**Export** of everything Zenda holds about your practice — conversations, records, appointments — in a machine-readable format.",
+          "**Erasure** of that data, carried out within 30 days.",
+          "**Export followed by erasure**, which is the normal path when a relationship ends: you take the history and we delete our copy.",
+          "The request may come from you or from whoever administers your Zenda account. Write to hello@waterfalltech.xyz.",
+        ],
+      },
+      {
+        id: "meta",
+        heading: "Data held by Meta",
+        body: [
+          "Messages travel through WhatsApp, so part of the data sits in Meta's infrastructure — and that part **is not under our control**. Deleting from Zenda does not delete from WhatsApp.",
+          "For data Meta processes on its own account, the request goes to Meta through its own channels. If you disconnect the number from Zenda we stop sending and receiving on it immediately, but what has already passed through Meta follows Meta's rules.",
+          "The doctor's phone also keeps its own copy of the conversations in the WhatsApp Business app. That copy is theirs, on their device, and is deleted there.",
+        ],
+      },
+      {
+        id: "exceptions",
+        heading: "What is not deleted, and why",
+        body: [
+          "Deletion is broad but not absolute — the LGPD itself (art. 16) preserves what the law requires to be kept. The following remain:",
+        ],
+        list: [
+          "**Application access logs**, for six months, under the Internet Civil Framework (art. 15). A legal obligation that cannot be waived on request.",
+          "**Evidence that the request was fulfilled** — date, type of request and confirmation — without the deleted content. It is what lets us demonstrate we complied.",
+          "**Data the controller is required to keep** under professional council rules, such as medical record retention where applicable.",
+          "**Backups** may hold the data for up to 30 further days, unused, until normal rotation. They are not consulted for any other purpose.",
+        ],
+      },
+      {
+        id: "contact",
+        heading: "Contact",
+        body: [
+          "**hello@waterfalltech.xyz** — Waterfall, CNPJ 42.804.319/0001-10, Rio de Janeiro, Brazil.",
+          "Data protection officer: Marcos Nunes.",
+          "You may also petition Brazil's data protection authority, the **ANPD** (gov.br/anpd), directly — you do not have to come to us first.",
         ],
       },
     ],

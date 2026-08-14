@@ -147,13 +147,19 @@ export function Footer({
           <div className="col-span-12 sm:col-span-4 lg:col-span-2 lg:col-start-11">
             <h2 className="label">{dict.legal.label}</h2>
             <ul className="mt-6 flex flex-col gap-3.5">
-              {(["privacy", "terms"] as const).map((slug) => (
+              {(
+                [
+                  ["privacy", dict.legal.privacy],
+                  ["terms", dict.legal.terms],
+                  ["data-deletion", dict.legal.deletion],
+                ] as const
+              ).map(([slug, doc]) => (
                 <li key={slug}>
                   <Link
                     href={localePath(locale, `/legal/${slug}`)}
                     className="text-sm text-ink-300 transition-colors duration-300 hover:text-ink-50"
                   >
-                    {dict.legal[slug].title}
+                    {doc.title}
                   </Link>
                 </li>
               ))}

@@ -13,10 +13,15 @@ import {
 } from "@/lib/i18n";
 
 /* --------------------------------------------------------------------------
- * Legal documents: /<locale>/legal/privacy and /<locale>/legal/terms.
+ * Legal documents: privacy policy, terms of use, and data deletion.
  *
- * One dynamic route rather than two pages — the documents share every piece of
- * chrome, and two files would be two places to forget the same fix.
+ * One dynamic route rather than three pages — they share every piece of chrome,
+ * and three files would be three places to forget the same fix.
+ *
+ * Data deletion is a document of its own because Meta's App Dashboard has a
+ * separate "User Data Deletion" field beside the privacy and terms fields.
+ * Pointing all three at the same URL is a rejection reason: the reviewer is
+ * looking for actionable instructions, not a paragraph buried in a long policy.
  *
  * The slugs are English in both locales on purpose. A translated slug means a
  * link printed in a contract, pasted into a Meta App Review form or filed by a
@@ -28,12 +33,25 @@ import {
  * who arrives from anywhere else.
  * ----------------------------------------------------------------------- */
 
-const DOCS = ["privacy", "terms"] as const;
+const DOCS = ["privacy", "terms", "data-deletion"] as const;
 type DocSlug = (typeof DOCS)[number];
 
 function isDocSlug(value: string): value is DocSlug {
   return (DOCS as readonly string[]).includes(value);
 }
+
+/**
+ * URL slug -> chave no dicionario.
+ *
+ * O slug e `data-deletion` porque e o que a Meta espera colar no campo "User
+ * Data Deletion" do painel — um endereco que se le. A chave e `deletion`
+ * porque `dict.legal["data-deletion"]` nao passa no typecheck.
+ */
+const DOC_KEY = {
+  privacy: "privacy",
+  terms: "terms",
+  "data-deletion": "deletion",
+} as const;
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => DOCS.map((doc) => ({ locale, doc })));
@@ -49,7 +67,7 @@ export async function generateMetadata({
 
   const dict = getDict(locale);
   const active: Locale = isLocale(locale) ? locale : "en";
-  const document = dict.legal[doc];
+  const document = dict.legal[DOC_KEY[doc]];
   const path = localePath(active, `/legal/${doc}`);
 
   return {
@@ -112,7 +130,7 @@ export default async function LegalPage({
                     : "text-[0.8125rem] text-ink-400 transition-colors duration-300 hover:text-ink-100"
                 }
               >
-                {dict.legal[slug].title}
+                {dict.legal[DOC_KEY[slug]].title}
               </Link>
             ))}
           </nav>
@@ -120,7 +138,7 @@ export default async function LegalPage({
       </header>
 
       <main id="main">
-        <LegalDocument doc={dict.legal[doc]} dict={dict} locale={locale} />
+        <LegalDocument doc={dict.legal[DOC_KEY[doc]]} dict={dict} locale={locale} />
       </main>
 
       <Footer dict={dict} locale={locale} />
