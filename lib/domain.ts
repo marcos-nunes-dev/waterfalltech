@@ -33,6 +33,31 @@ export function productPath(slug: string): string {
   return `/products/${slug}`;
 }
 
+/**
+ * Sections that belong to the SITE, not to any one product.
+ *
+ * A product subdomain rewrites every path into the product's page — that is
+ * the whole point of it. But the legal pages are the company's, not Zenda's:
+ * one privacy policy, one set of terms, written once and reachable from every
+ * product footer. Without this list, `zenda.waterfalltech.xyz/en/legal/privacy`
+ * rewrites to `/en/products/zenda/legal/privacy`, which does not exist — and
+ * the footer link on the product page 404s.
+ *
+ * That is not a cosmetic bug. Meta's App Review opens the privacy policy URL,
+ * and a 404 there is a rejection.
+ *
+ * An allowlist rather than "any path with no product page": a typo'd product
+ * path should keep landing on the product, not silently fall through to a
+ * site-wide 404 that reads like the subdomain is broken.
+ */
+export const SHARED_SECTIONS: ReadonlySet<string> = new Set(["legal"]);
+
+/** True when a path under a product subdomain belongs to the site instead. */
+export function isSharedSection(pathAfterLocale: string): boolean {
+  const first = pathAfterLocale.split("/").filter(Boolean)[0];
+  return first !== undefined && SHARED_SECTIONS.has(first);
+}
+
 /** The product's own public origin: `https://zenda.waterfalltech.xyz`. */
 export function productSubdomain(slug: string): string {
   return `https://${slug}.${site.domain}`;

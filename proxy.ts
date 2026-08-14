@@ -71,6 +71,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   isProductionApex,
   isProductSlug,
+  isSharedSection,
   productPath,
   productSlugFromHost,
   productUrl,
@@ -168,7 +169,12 @@ export function proxy(request: NextRequest) {
         ? ""
         : pathname;
 
-    const target = `/${locale}${productPath(slug)}${rest}`;
+    // The legal pages are the company's, not the product's: on a product
+    // subdomain they render the SITE route, so the footer link resolves where
+    // it points instead of folding into a product path that does not exist.
+    const target = isSharedSection(rest)
+      ? `/${locale}${rest}`
+      : `/${locale}${productPath(slug)}${rest}`;
     // Already where we want to be — rewriting again would nest the path.
     if (pathname === target) return NextResponse.next();
 
