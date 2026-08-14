@@ -239,3 +239,150 @@ html.lenis body {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ============================================================================
+   ZENDA — escopo claro
+   ============================================================================
+   A pagina do produto NAO herda a linguagem da agencia. O Zenda e branco, com
+   azul e rosa, e a mesma tipografia do app: quem chega pela landing e entra no
+   produto precisa reconhecer o mesmo lugar. Uma landing escura seguida de um
+   app claro se le como dois produtos.
+
+   Os tokens abaixo REDEFINEM os do tema dentro de `.zenda-scope`. Como as
+   utilidades do Tailwind (`text-ink-50`, `bg-ink-950`, `text-signal`) resolvem
+   via `var()`, os componentes existentes continuam funcionando e passam a
+   pintar claro — sem reescrever classe por classe.
+
+   Os valores sao os mesmos de `apps/web/src/styles/tokens.css` no repositorio
+   do Zenda. Divergir aqui e como a landing deixa de parecer o produto.
+   ========================================================================= */
+
+.zenda-scope {
+  /* A escala de tinta INVERTE: `ink-50`, que no site escuro e quase branco,
+     aqui vira quase preto — porque nos dois casos ele significa "o texto mais
+     forte da pagina". Inverter o significado quebraria todo componente. */
+  --color-ink-1000: #ffffff;
+  --color-ink-950: #ffffff;
+  --color-ink-900: #f8fafc;
+  --color-ink-850: #f1f5f9;
+  --color-ink-800: #e2e8f0;
+  --color-ink-700: #cbd5e1;
+  --color-ink-600: #94a3b8;
+  --color-ink-500: #94a3b8;
+  --color-ink-400: #475569;
+  --color-ink-300: #334155;
+  --color-ink-200: #1e293b;
+  --color-ink-100: #0f172a;
+  --color-ink-50: #0f172a;
+
+  --color-signal: #3b82f6;
+  --color-signal-bright: #2563eb;
+  --color-signal-deep: #1d4ed8;
+
+  --color-canvas: #ffffff;
+  --color-canvas-sunk: #f8fafc;
+  --color-canvas-raised: #ffffff;
+
+  /* Hairline em vez de elevacao — a mesma decisao do app. */
+  --rule: #eef2f7;
+  --rule-strong: #e2e8f0;
+  --rule-faint: #f1f5f9;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* Rosa: o segundo acento do Zenda. Existe como token proprio porque nao ha
+     equivalente no tema da agencia — la ha um acento so. */
+  --z-pink: #ec4899;
+  --z-pink-soft: #fce7f3;
+  --z-blue-soft: #dbeafe;
+  --z-blue-tint: #eff6ff;
+  --z-mint: #10b981;
+  --z-mint-soft: #d1fae5;
+  --z-amber: #f59e0b;
+  --z-amber-soft: #fef3c7;
+  --z-rose: #f43f5e;
+  --z-rose-soft: #ffe4e6;
+
+  /* O mesmo papel de parede do app: quase branco, com um sopro de azul e rosa. */
+  background:
+    radial-gradient(1200px 760px at 8% -6%, rgba(147, 197, 253, 0.14), transparent 62%),
+    radial-gradient(1000px 700px at 102% 106%, rgba(244, 182, 214, 0.1), transparent 60%),
+    linear-gradient(155deg, #f3f7fc 0%, #f8fafd 42%, #f5f6fc 100%);
+  background-attachment: fixed;
+  color: #1e293b;
+  color-scheme: light;
+}
+
+/* O `html` continua escuro globalmente; sem isto, o overscroll (e a barra do
+   navegador em iOS) mostraria a cor da agencia por baixo da pagina branca. */
+html:has(.zenda-scope) {
+  background-color: #f5f8fc;
+  color-scheme: light;
+}
+
+.zenda-scope ::selection {
+  background-color: var(--z-blue-soft);
+  color: #0f172a;
+}
+
+/* Superficie: branco puro sobre o papel de parede, separada por hairline e nao
+   por sombra. E o que produz a sensacao "clean" em vez de "cards flutuando". */
+.zenda-scope .z-surface {
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-radius: 22px;
+}
+
+/* Etiqueta de secao — no app ela e Jakarta em caixa alta, nao monoespacada. */
+.zenda-scope .label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* A enfase editorial em serifa nao pertence ao Zenda: no produto o destaque e
+   COR, nao mudanca de familia. */
+.zenda-scope .em-serif {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-signal);
+}
+
+/* Moldura das capturas. O app se separa do fundo por hairline e um brilho azul
+   muito baixo — nao por sombra. Repetir isso aqui e o que faz a captura parecer
+   parte da pagina em vez de uma imagem colada nela. */
+.zenda-scope .z-shot {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--rule-strong);
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 24px 60px -32px rgba(59, 130, 246, 0.28);
+}
+
+.zenda-scope .z-shot img {
+  display: block;
+}
+
+/* No celular, a captura de uma interface densa de desktop encolhe para algo
+   ilegivel. Em vez de esconder o problema, o quadro rola por dentro: a imagem
+   mantem uma largura minima legivel e a pessoa arrasta. O `overflow-x` fica no
+   quadro, nunca no `body` — pagina que rola de lado horizontalmente e defeito. */
+@media (max-width: 767px) {
+  .zenda-scope .z-shot {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .zenda-scope .z-shot img {
+    width: auto;
+    max-width: none;
+    height: auto;
+    min-width: 46rem;
+  }
+}

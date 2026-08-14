@@ -329,53 +329,112 @@ export const ptBR: Dictionary = {
     // ("O WhatsApp de todas as clínicas em um lugar") quebrava em quatro linhas
     // e jogava os CTAs para baixo da dobra. O "WhatsApp" aparece logo no lede.
     headline: { before: "Todas as clínicas em", accent: "uma", after: "tela" },
-    lede: "O Zenda é onde trabalha quem cuida de agenda médica. Conecte o WhatsApp Business de cada clínica que você atende, responda tudo de uma tela só e marque, remarque e confirme consultas sem sair da conversa.",
+    lede: "O Zenda é onde trabalha quem cuida da agenda de vários médicos. Conecte o WhatsApp Business de cada cliente, atenda todos os pacientes numa lista só — e saiba quem precisa voltar antes de o paciente sumir.",
     primaryCta: { label: "Pedir acesso", href: "#access" },
-    secondaryCta: { label: "Como funciona", href: "#how" },
-    status: { label: "Beta privado", detail: "Onboarding de um grupo pequeno de clínicas" },
+    secondaryCta: { label: "Ver por dentro", href: "#showcase" },
+    status: { label: "Beta privado", detail: "Onboarding de um grupo pequeno de operações" },
 
     problem: {
       kicker: "O problema",
-      headline: { before: "Uma pessoa, cinco celulares e uma", accent: "agenda", after: "que mais ninguém enxerga" },
-      body: "Quem cuida da agenda de várias clínicas faz isso em várias contas de WhatsApp, quase sempre em aparelhos diferentes. As confirmações saem na mão, uma mensagem por vez. O paciente que escreveu ontem não tem histórico que outra pessoa consiga achar — e no dia em que essa pessoa folga, a agenda folga junto.",
+      headline: { before: "Cinco celulares, nenhuma", accent: "memória", after: "" },
+      body: "Quem cuida da agenda de vários médicos faz isso em várias contas de WhatsApp, quase sempre em aparelhos diferentes. Pior que a troca de tela é o que não fica registrado: o paciente que veio em março e deveria voltar em setembro não volta, porque ninguém lembra — e ninguém lembra porque não existe onde anotar. Cada retorno perdido é dinheiro que o seu cliente não faz e serviço que você não pode cobrar.",
     },
 
+    featuresHeader: {
+      kicker: "O que ele faz",
+      headline: { before: "Quatro coisas, e todas as quatro na mesma", accent: "tela", after: "" },
+    },
     features: [
       {
         id: "inbox",
-        title: "Todos os números em uma caixa só",
-        body: "Conecte a conta de WhatsApp Business de cada clínica que você atende. Toda conversa cai na mesma fila, marcada por clínica, em vez de em um celular diferente dentro de uma gaveta.",
+        title: "Todos os pacientes numa lista só",
+        body: "Conecte a conta de WhatsApp Business de cada médico ou clínica que você atende. Toda conversa cai na mesma fila, com a etiqueta de quem é — porque responder em nome do médico errado é o único erro que não dá para desfazer. Quem está esperando há três horas aparece diferente de quem escreveu agora.",
       },
       {
-        id: "calendar",
-        title: "A agenda do lado da conversa",
-        body: "Marque, remarque e cancele enquanto ainda está lendo o que o paciente escreveu. Sem trocar de sistema e digitar o nome de novo.",
+        id: "patients",
+        title: "Uma ficha que se preenche sozinha",
+        body: "O paciente nasce da conversa: chegou uma mensagem, o número virou uma ficha. Você anota o que descobrir — prefere manhã, vem com a filha, alérgica a látex — e o histórico de consultas, procedimentos e conversas fica junto. A ficha é por cliente: o que você anota para um médico não aparece na tela do outro.",
       },
       {
-        id: "confirmations",
-        title: "Confirmação que roda sozinha",
-        body: "Lembretes e pedidos de confirmação saem na hora certa, e as respostas atualizam a agenda. Confirmar um dia inteiro deixa de ser a manhã inteira de alguém.",
+        id: "returns",
+        title: "Quem está para voltar",
+        body: "Cada procedimento tem o intervalo de retorno do consultório, e cada paciente pode ter o dele. Registrou o atendimento, a data de volta já fica marcada. A lista abre por quem está mais vencido: “venceu há 7 meses”, “volta em 20 dias”. É a diferença entre esperar o paciente lembrar e ligar antes.",
       },
       {
-        id: "team",
-        title: "Mais de uma pessoa no mesmo número",
-        body: "Distribua conversas, deixe notas internas, passe um paciente adiante no meio do papo. Todo mundo vê o mesmo histórico, então ninguém precisa pedir para o paciente explicar tudo de novo.",
+        id: "clients",
+        title: "Seus clientes, do seu lado",
+        body: "Quanto você cobra de cada médico e em que dia vence. Se o WhatsApp de algum deles caiu ou está sem forma de pagamento na Meta — o caso silencioso em que o número conecta e não envia. E quantos pacientes cada um deu no mês, que é o número que sustenta a conversa sobre reajuste.",
       },
     ],
 
+    showcase: {
+      kicker: "Por dentro",
+      headline: { before: "Não é maquete. É o", accent: "produto", after: "rodando" },
+      lede: "As telas abaixo saem do Zenda em funcionamento, com dados de demonstração. Nenhum paciente real aparece aqui.",
+      shots: [
+        {
+          id: "inbox",
+          src: "/zenda/inbox.png",
+          alt: "Caixa de conversas do Zenda com pacientes de várias clínicas na mesma lista, cada um com a etiqueta do cliente",
+          title: "A caixa unificada",
+          body: "Pacientes de todos os seus clientes na mesma fila. Cada linha diz de qual clínica a pessoa vem, há quanto tempo espera resposta e quanto falta da janela de 24 h do WhatsApp — depois dela, só um template aprovado reabre a conversa.",
+        },
+        {
+          id: "clients",
+          src: "/zenda/clientes.png",
+          alt: "Tabela de clientes do Zenda com cobrança, estado da conexão e volume de pacientes por mês",
+          title: "Seus clientes",
+          body: "Ordenados por quem precisa de atenção primeiro: conexão caída, cartão faltando na conta da Meta, qualidade em queda, mensalidade em atraso. O que quebra sozinho aparece antes de o médico ligar reclamando.",
+        },
+        {
+          id: "patients",
+          src: "/zenda/pacientes.png",
+          alt: "Lista de pacientes de uma clínica no Zenda, ordenada por data de retorno, com etiquetas de vencido e a vencer",
+          title: "Quem está para voltar",
+          body: "A lista de pacientes de cada cliente, aberta por quem está mais vencido. Não há cadastro a fazer: ela se preenche com quem já mandou mensagem para aquele número.",
+        },
+        {
+          id: "record",
+          src: "/zenda/ficha.png",
+          alt: "Ficha de paciente do Zenda com intervalo de retorno, procedimentos registrados, anotações e histórico",
+          title: "A ficha do paciente",
+          body: "Intervalo de retorno, procedimentos já feitos, anotações que só a sua equipe vê e o histórico de consultas e conversas. As alterações salvam sozinhas — botão de salvar em anotação é o que se esquece de clicar.",
+        },
+      ],
+    },
+
+    howTitle: "Como funciona",
     how: [
-      { step: "Conectar", body: "Ligue o número de WhatsApp Business de cada clínica. Minutos por clínica, e nada muda para o paciente — ele continua escrevendo para o mesmo número de sempre." },
-      { step: "Organizar", body: "As conversas chegam em uma caixa só, com a agenda do dia do lado. Distribua, marque por clínica, responda." },
-      { step: "Confirmar", body: "Lembretes e pedidos de confirmação saem sozinhos. As respostas atualizam a agenda, e você vê num relance o que ainda está sem confirmar." },
+      { step: "Conectar", body: "O médico autoriza pela conta Meta dele, e o número continua sendo dele. Nada muda para o paciente: mesmo número de sempre, e o WhatsApp Business no celular continua funcionando igual. Se ele autorizar, as conversas anteriores daquele número vêm junto." },
+      { step: "Atender", body: "Todas as conversas numa lista, com etiqueta de cliente, tags do seu jeito de organizar e o aviso de quem está esperando há tempo demais. A ficha do paciente abre do lado, com o que já sabemos dele." },
+      { step: "Trazer de volta", body: "Registre o que foi feito e a data de retorno fica marcada sozinha. Todo dia a lista mostra quem venceu e quem vence em breve — e o trabalho deixa de depender da memória de alguém." },
     ],
 
     faq: [
-      /** DEMO — confirme os detalhes de integração antes de publicar. */
-      { q: "Usa a API oficial do WhatsApp Business?", a: "DEMO — troque pela resposta real. Precisa dizer exatamente como um número é conectado, se dá para migrar uma conta de WhatsApp Business que já existe e o que acontece com o histórico que já está naquele número." },
-      /** DEMO — coloque um número real quando souber. */
-      { q: "Quantas clínicas uma pessoa consegue tocar?", a: "DEMO — troque pela resposta real, de preferência com um número vindo do beta. Diga também se a cobrança é por clínica, por número ou por usuário." },
-      { q: "O que acontece com os dados dos pacientes?", a: "DEMO — troque pela resposta real e seja específico sobre LGPD: onde os dados ficam, por quanto tempo as mensagens são guardadas, quem dentro da clínica pode ler e como os dados de um paciente são apagados quando ele pede. É essa pergunta que decide a venda para uma clínica." },
-      { q: "Quem faz o Zenda?", a: "A Waterfall — a consultoria. O Zenda saiu de ver o mesmo problema em clínica atrás de clínica: agendar não é difícil, difícil é fazer isso em cinco contas de WhatsApp." },
+      {
+        q: "Usa a API oficial do WhatsApp Business?",
+        a: "Sim, exclusivamente a Cloud API oficial da Meta. Bibliotecas não oficiais são proibidas no nosso código — e não é preciosismo: elas violam os termos da Meta e o risco é o banimento do número do médico, que é o ativo mais crítico do consultório. Conectamos por Coexistence: o WhatsApp Business no celular dele continua funcionando normalmente, o número não muda e o paciente não percebe diferença. Se o médico autorizar no momento da conexão, as conversas anteriores daquele número vêm junto.",
+      },
+      {
+        q: "Quem paga a Meta pelas mensagens?",
+        a: "O dono do número — o médico ou a clínica —, no CNPJ dele. É regra da Meta para o nosso tipo de parceria, não escolha nossa: a conta de cobrança fica com quem é dono do número. Desde julho de 2026 a cobrança no Brasil é em reais, faturada pela Facebook Brasil. Na prática costuma ser pouco, e o médico vê o próprio gasto quando quiser. Se ele preferir não cadastrar cartão, dá para você ser administradora da conta dele e usar o seu, embutindo o custo na sua mensalidade — o número continua sendo dele, e ele te remove quando quiser.",
+      },
+      {
+        q: "O que acontece com os dados dos pacientes?",
+        a: "Ficam separados por cliente, não juntos num balaio. A ficha é por par (cliente, paciente): a mesma pessoa atendida por dois médicos tem duas fichas, e a anotação de um nunca aparece na tela do outro — cada médico é o controlador dos dados dos pacientes dele. Corpo de mensagem e anotação clínica não vão para log, monitoramento ou relatório de erro. Não fazemos nenhum cruzamento de dado de saúde entre clientes, nem para métrica interna. E quando você perde um cliente, os dados daquele médico saem: o mapa de dados vive num documento público do projeto, com base legal e prazo de retenção por tabela.",
+      },
+      {
+        q: "Quantos clientes uma pessoa consegue tocar?",
+        a: "O produto não impõe limite: a caixa é uma só e o filtro por cliente serve para focar, não para navegar. O limite real é o de mensagens da Meta, que é por conta de cada cliente — e como cada um tem a conta dele, o volume de um não come a cota do outro, nem a reputação de um derruba a entrega dos demais. Ainda não temos número do beta para prometer, e preferimos não inventar um.",
+      },
+      {
+        q: "Já dá para usar?",
+        a: "Estamos em beta privado, com um grupo pequeno de operações. A conexão de números novos depende da aprovação do nosso aplicativo pela Meta, que é um processo dela e não nosso — por isso o acesso sai por lista, e a gente conduz a primeira conexão junto com você, por telefone. Peça acesso e a gente diz onde está a fila.",
+      },
+      {
+        q: "Quem faz o Zenda?",
+        a: "A Waterfall — a consultoria. O Zenda saiu de ver o mesmo problema em clínica atrás de clínica: agendar não é difícil, difícil é fazer isso em cinco contas de WhatsApp e lembrar de quem tinha que voltar.",
+      },
     ],
   },
 

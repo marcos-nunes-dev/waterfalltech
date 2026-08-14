@@ -9,7 +9,7 @@ import { pad } from "@/lib/utils";
  * moves is the indicator: a vertical hairline rotating onto a horizontal one.
  * ----------------------------------------------------------------------- */
 
-const INDEX = 4;
+const INDEX = 5;
 
 // `locale` is accepted for uniformity with every other section — this one has
 // no links, so it is never read.

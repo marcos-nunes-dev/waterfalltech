@@ -350,54 +350,113 @@ const products: Product[] = [
 
 const zenda: Zenda = {
   name: "Zenda",
-  headline: { before: "Every clinic's WhatsApp,", accent: "one", after: "inbox" },
-  lede: "Zenda is where medical schedulers work. Connect the WhatsApp Business number of every clinic you manage, answer all of it from one screen, and book, move and confirm appointments without leaving the conversation.",
+  headline: { before: "Every clinic on", accent: "one", after: "screen" },
+  lede: "Zenda is where you work if you run the schedule for several doctors. Connect each client's WhatsApp Business account, answer every patient from a single list — and know who is due back before the patient disappears.",
   primaryCta: { label: "Request access", href: "#access" },
-  secondaryCta: { label: "How it works", href: "#how" },
-  status: { label: "Private beta", detail: "Onboarding a small group of clinics" },
+  secondaryCta: { label: "See inside", href: "#showcase" },
+  status: { label: "Private beta", detail: "Onboarding a small group of practices" },
 
   problem: {
     kicker: "The problem",
-    headline: { before: "One scheduler, five phones, and a", accent: "calendar", after: "nobody else can see" },
-    body: "Whoever manages appointments for several clinics is doing it across several WhatsApp accounts, usually on several devices. Confirmations go out by hand, one message at a time. A patient who wrote yesterday has no history anyone else can find, and when that person takes a day off, the schedule goes with them.",
+    headline: { before: "Five phones, no", accent: "memory", after: "" },
+    body: "Running the schedule for several doctors means several WhatsApp accounts, usually on different handsets. Worse than the switching is what never gets written down: the patient seen in March who should return in September doesn't, because nobody remembers — and nobody remembers because there is nowhere to note it. Every missed return is revenue your client doesn't earn and work you can't bill for.",
   },
 
+  featuresHeader: {
+    kicker: "What it does",
+    headline: { before: "Four things, and all four on the same", accent: "screen", after: "" },
+  },
   features: [
     {
       id: "inbox",
-      title: "Every number in one inbox",
-      body: "Connect the WhatsApp Business account of each clinic you look after. Every conversation arrives in the same queue, tagged by clinic, instead of on a different phone in a different drawer.",
+      title: "Every patient in one list",
+      body: "Connect the WhatsApp Business account of each doctor or clinic you serve. Every conversation lands in the same queue, labelled with whose it is — answering on behalf of the wrong doctor is the one mistake you cannot undo. Someone waiting three hours looks different from someone who just wrote.",
     },
     {
-      id: "calendar",
-      title: "The calendar beside the conversation",
-      body: "Book, move and cancel while you are still reading what the patient wrote. No switching to another system and typing the name a second time.",
+      id: "patients",
+      title: "A record that fills itself in",
+      body: "The patient is born from the conversation: a message arrives, the number becomes a record. You note what you learn — prefers mornings, comes with her daughter, latex allergy — and the history of visits, procedures and conversations sits alongside it. Records are per client: what you write for one doctor never shows on another's screen.",
     },
     {
-      id: "confirmations",
-      title: "Confirmations that run themselves",
-      body: "Automatic reminders and confirmation requests go out on schedule, and the answers update the calendar. Confirming a full day stops being someone's whole morning.",
+      id: "returns",
+      title: "Who is due back",
+      body: "Each procedure carries the practice's return interval, and each patient can carry their own. Log the visit and the return date is already set. The list opens on whoever is most overdue: “7 months overdue”, “due in 20 days”. It's the difference between waiting for the patient to remember and calling first.",
     },
     {
-      id: "team",
-      title: "More than one person on the same number",
-      body: "Assign conversations, leave internal notes, hand a patient over mid-thread. Everyone sees the same history, so nobody has to ask the patient to explain it again.",
+      id: "clients",
+      title: "Your clients, beside you",
+      body: "What you charge each doctor and when it falls due. Whether anyone's WhatsApp has dropped or is missing a payment method at Meta — the silent case where the number connects and doesn't send. And how many patients each one brought this month, which is the number that carries the conversation about your rate.",
     },
   ],
 
+  showcase: {
+    kicker: "Inside",
+    headline: { before: "Not a mockup. The", accent: "product", after: "running" },
+    lede: "The screens below come from Zenda in use, with demonstration data. No real patient appears here. The interface is in Brazilian Portuguese — Zenda runs on WhatsApp in Brazil, and that is who it is built for.",
+    shots: [
+      {
+        id: "inbox",
+        src: "/zenda/inbox.png",
+        alt: "Zenda inbox showing patients from several clinics in one list, each tagged with its client",
+        title: "The single inbox",
+        body: "Patients from all your clients in the same queue. Each row says which clinic the person belongs to, how long they have been waiting and how much is left of WhatsApp's 24-hour window — after it, only an approved template reopens the conversation.",
+      },
+      {
+        id: "clients",
+        src: "/zenda/clientes.png",
+        alt: "Zenda client table with billing, connection health and monthly patient volume",
+        title: "Your clients",
+        body: "Sorted by who needs attention first: dropped connection, missing card at Meta, quality slipping, payment overdue. What breaks on its own shows up before the doctor calls to complain.",
+      },
+      {
+        id: "patients",
+        src: "/zenda/pacientes.png",
+        alt: "Zenda patient list for one clinic, sorted by return date, with overdue and due-soon labels",
+        title: "Who is due back",
+        body: "Each client's patient list, opening on whoever is most overdue. Nothing to register: it fills itself with whoever has already messaged that number.",
+      },
+      {
+        id: "record",
+        src: "/zenda/ficha.png",
+        alt: "Zenda patient record with return interval, logged procedures, notes and history",
+        title: "The patient record",
+        body: "Return interval, procedures already performed, notes only your team can see, and the history of visits and conversations. Changes save themselves — a save button on a note is the one you forget to press.",
+      },
+    ],
+  },
+
+  howTitle: "How it works",
   how: [
-    { step: "Connect", body: "Link each clinic's WhatsApp Business number. Minutes per clinic, and nothing changes for the patient — they keep writing to the same number they always did." },
-    { step: "Organise", body: "Conversations land in one inbox with the day's schedule alongside. Assign them, tag them by clinic, answer them." },
-    { step: "Confirm", body: "Reminders and confirmation requests go out automatically. Replies update the calendar, and you see what is still unconfirmed at a glance." },
+    { step: "Connect", body: "The doctor authorises with their own Meta account, and the number stays theirs. Nothing changes for the patient: same number as always, and WhatsApp Business on the phone keeps working exactly as before. If they allow it, that number's earlier conversations come across too." },
+    { step: "Handle", body: "Every conversation in one list, tagged by client, with your own labels and a warning for anyone who has been waiting too long. The patient record opens beside it, with everything you already know." },
+    { step: "Bring them back", body: "Log what was done and the return date sets itself. Every day the list shows who is overdue and who is due soon — and the work stops depending on somebody's memory." },
   ],
 
   faq: [
-    /** DEMO — confirm the integration details before publishing. */
-    { q: "Does it use the official WhatsApp Business API?", a: "DEMO — replace with the real answer. It should say exactly how a number is connected, whether an existing WhatsApp Business account can be migrated, and what happens to the message history already on that number." },
-    /** DEMO — set a real number once you know it. */
-    { q: "How many clinics can one person handle?", a: "DEMO — replace with the real answer, ideally with a number from the beta. Say whether pricing is per clinic, per number or per seat." },
-    { q: "What happens to patient data?", a: "DEMO — replace with the real answer, and be specific about LGPD: where the data lives, how long messages are retained, who inside the clinic can read them, and how a patient's data is deleted on request. This is the question that decides the sale for a clinic." },
-    { q: "Who builds Zenda?", a: "Waterfall — the consultancy. Zenda came out of watching the same problem in clinic after clinic: the scheduling is not hard, but doing it across five WhatsApp accounts is." },
+    {
+      q: "Does it use the official WhatsApp Business API?",
+      a: "Yes, exclusively Meta's official Cloud API. Unofficial libraries are banned in our codebase — not out of purism: they breach Meta's terms, and the risk is the doctor's number being banned, which is the practice's most critical asset. We connect through Coexistence: WhatsApp Business on their phone keeps working, the number doesn't change, and the patient notices nothing. If the doctor allows it at connection time, that number's earlier conversations come across too.",
+    },
+    {
+      q: "Who pays Meta for the messages?",
+      a: "The owner of the number — the doctor or the clinic — under their own company. That's Meta's rule for our type of partnership, not our choice: the billing account belongs to whoever owns the number. Since July 2026 billing in Brazil is in reais, invoiced by Facebook Brasil. In practice it tends to be small, and the doctor can see their own spend whenever they want. If they'd rather not add a card, you can be an administrator on their account and use yours, folding the cost into your monthly fee — the number stays theirs, and they can remove you at any time.",
+    },
+    {
+      q: "What happens to patient data?",
+      a: "It stays separated by client, not pooled. The record is per (client, patient) pair: the same person seen by two doctors has two records, and a note for one never appears on the other's screen — each doctor is the controller of their own patients' data. Message bodies and clinical notes never reach logs, monitoring or error reports. We run no cross-client aggregation of health data, not even for internal metrics. And when you lose a client, that doctor's data goes with them: the data map lives in a public project document, with legal basis and retention period per table.",
+    },
+    {
+      q: "How many clients can one person handle?",
+      a: "The product imposes no limit: there is one inbox, and filtering by client is for focus, not navigation. The real limit is Meta's messaging cap, which sits with each client's own account — so one client's volume never eats another's quota, and one client's reputation never drags down everyone else's delivery. We don't have a number from the beta yet, and we'd rather not invent one.",
+    },
+    {
+      q: "Can I use it today?",
+      a: "We're in private beta with a small group of practices. Connecting new numbers depends on Meta approving our application, which is their process and not ours — so access goes out by list, and we run your first connection together, on a call. Request access and we'll tell you where the queue stands.",
+    },
+    {
+      q: "Who makes Zenda?",
+      a: "Waterfall — the consultancy. Zenda came out of seeing the same problem in clinic after clinic: booking isn't the hard part; doing it across five WhatsApp accounts and remembering who was due back is.",
+    },
   ],
 };
 

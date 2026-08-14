@@ -1,4 +1,5 @@
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { Headline } from "@/components/ui/primitives";
 import type { Dictionary } from "@/content/types";
 import type { Locale } from "@/lib/i18n";
 import { cn, pad } from "@/lib/utils";
@@ -31,8 +32,7 @@ function Tick() {
 // `locale` is accepted for uniformity with every other section — this one has
 // no links, so it is never read.
 export function ZendaFeatures({ dict }: { dict: Dictionary; locale: Locale }) {
-  const { products, zenda } = dict;
-  const product = products.find((p) => p.slug === "zenda") ?? products[0];
+  const { zenda } = dict;
   const [lead, ...rest] = zenda.features;
 
   return (
@@ -44,16 +44,19 @@ export function ZendaFeatures({ dict }: { dict: Dictionary; locale: Locale }) {
             y={12}
           >
             <span className="label text-signal">{pad(INDEX)}</span>
-            <span className="label">{product.kicker}</span>
+            <span className="label">{zenda.featuresHeader.kicker}</span>
           </Reveal>
           <Reveal
             className="col-span-12 lg:col-span-8 lg:col-start-5"
             delay={0.08}
             y={16}
           >
-            <h2 className="max-w-[24ch] text-title font-medium text-balance text-ink-50">
-              {product.tagline}
-            </h2>
+            <Headline
+              as="h2"
+              size="title"
+              parts={zenda.featuresHeader.headline}
+              className="max-w-[24ch] font-semibold text-balance text-ink-50"
+            />
           </Reveal>
         </header>
 

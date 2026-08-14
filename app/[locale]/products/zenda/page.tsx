@@ -7,6 +7,7 @@ import { ZendaHero } from "@/components/zenda/zenda-hero";
 import { ZendaHow } from "@/components/zenda/zenda-how";
 import { ZendaNav } from "@/components/zenda/zenda-nav";
 import { ZendaProblem } from "@/components/zenda/zenda-problem";
+import { ZendaShowcase } from "@/components/zenda/zenda-showcase";
 import { productPath } from "@/lib/domain";
 import {
   getDict,
@@ -87,6 +88,7 @@ export default async function ZendaPage({
         <ZendaHero {...props} />
         <ZendaProblem {...props} />
         <ZendaFeatures {...props} />
+        <ZendaShowcase {...props} />
         <ZendaHow {...props} />
         <ZendaFaq {...props} />
         <ZendaCta {...props} />

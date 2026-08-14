@@ -114,9 +114,45 @@ export type Zenda = {
   secondaryCta: Cta;
   status: { label: string; detail: string };
   problem: { kicker: string; headline: HeadlineParts; body: string };
+  /**
+   * Cabecalho da secao de recursos.
+   *
+   * Vinha de `products[zenda]` — a ficha do produto no site da AGENCIA, cujo
+   * kicker e "nosso primeiro produto". Na pagina do proprio Zenda isso e a voz
+   * errada: aqui quem fala e o produto, nao quem o fez.
+   */
+  featuresHeader: { kicker: string; headline: HeadlineParts };
   features: { id: string; title: string; body: string }[];
+  /**
+   * Titulo da secao "como funciona".
+   *
+   * Vinha de `secondaryCta.label` — o texto de um BOTAO servindo de cabecalho
+   * de secao. Mudar o destino do botao renomeava a secao, que foi exatamente o
+   * que aconteceu quando o CTA passou a apontar para as telas.
+   */
+  howTitle: string;
   how: { step: string; body: string }[];
   faq: { q: string; a: string }[];
+  /**
+   * Telas reais do produto, nao mockup.
+   *
+   * O `src` aponta para `public/zenda/`, e as capturas saem do app rodando com
+   * os dados de demonstracao — nenhum dado de paciente real passa por aqui.
+   * Trocar por ilustracao e a forma mais rapida de a landing prometer uma
+   * interface que nao existe.
+   */
+  showcase: {
+    kicker: string;
+    headline: HeadlineParts;
+    lede: string;
+    shots: {
+      id: string;
+      src: string;
+      alt: string;
+      title: string;
+      body: string;
+    }[];
+  };
 };
 
 export type Contact = {

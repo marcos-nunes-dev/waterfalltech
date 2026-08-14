@@ -13,7 +13,7 @@ import { cn, pad } from "@/lib/utils";
  * ----------------------------------------------------------------------- */
 
 const EXPO = [0.16, 1, 0.3, 1] as const;
-const INDEX = 3;
+const INDEX = 4;
 
 // `locale` is accepted for uniformity with every other section — this one has
 // no links, so it is never read.
@@ -34,7 +34,7 @@ export function ZendaHow({ dict }: { dict: Dictionary; locale: Locale }) {
         >
           <span className="label text-signal">{pad(INDEX)}</span>
           <h2 className="text-title font-medium text-balance text-ink-50">
-            {zenda.secondaryCta.label}
+            {zenda.howTitle}
           </h2>
         </Reveal>
 
