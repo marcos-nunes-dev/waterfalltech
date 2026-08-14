@@ -46,6 +46,15 @@ export type SiteInfo = {
   description: string;
   base: string;
   coverage: string;
+  /**
+   * CNPJ da empresa, ja formatado.
+   *
+   * Fica em `site` e nao no dicionario de textos porque nao e copy: e o mesmo
+   * numero nos dois idiomas, e traduzir ou reformatar um identificador legal e
+   * como ele deixa de servir para o que existe. A sigla "CNPJ" tambem nao se
+   * traduz — e nome proprio de um registro brasileiro.
+   */
+  cnpj: string;
   founded: number;
   socials: { label: string; href: string }[];
 };

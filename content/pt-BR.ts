@@ -38,6 +38,7 @@ export const ptBR: Dictionary = {
     /** PLACEHOLDER — onde vocês ficam de fato, e os fusos que vocês cobrem. */
     base: "Rio de Janeiro, Brasil",
     coverage: "UTC−3 · horários sobrepostos com EUA e Europa",
+    cnpj: "42.804.319/0001-10",
     founded: 2021,
     socials: [
       /** PLACEHOLDER — apague as que vocês não têm. */

@@ -149,6 +149,10 @@ export function Footer({
           <p className="label">
             © {year} {site.name}
           </p>
+          {/* Identificação da pessoa jurídica. Fica ao lado do copyright porque é
+              a mesma natureza de informação — quem responde pelo site — e porque
+              é ali que quem procura por ela olha primeiro. */}
+          <p className="label">CNPJ {site.cnpj}</p>
           {/* The only line here long enough to wrap; `label` is line-height:1,
               which collides on a second line. */}
           <p className="label leading-[1.45]">{site.coverage}</p>

@@ -50,6 +50,7 @@ const site: SiteInfo = {
   /** PLACEHOLDER — where you're actually based, and the timezones you cover. */
   base: "Rio de Janeiro, Brazil",
   coverage: "UTC−3 · overlapping US & EU hours",
+  cnpj: "42.804.319/0001-10",
   founded: 2021,
   socials: [
     /** PLACEHOLDER — delete any you don't have. */
