@@ -1,7 +1,8 @@
 import { MaskText, Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { ArrowLink, SectionHeader, StatusDot } from "@/components/ui/primitives";
 import type { Dictionary, Product } from "@/content/types";
-import { localePath, sectionCopy, sectionIndex, type Locale } from "@/lib/i18n";
+import { productHref } from "@/lib/domain";
+import { sectionCopy, sectionIndex, type Locale } from "@/lib/i18n";
 import { cn, interpolate, pad } from "@/lib/utils";
 
 /* --------------------------------------------------------------------------
@@ -143,7 +144,7 @@ function ProductBlock({
 
             <Reveal delay={0.2} y={12}>
               <div className="mt-10">
-                <ArrowLink href={localePath(locale, `/products/${product.slug}`)}>
+                <ArrowLink href={productHref(product.slug, locale)}>
                   {interpolate(ui.openProductPage, { name: product.name })}
                 </ArrowLink>
                 {/* Canonical host, rendered as metadata rather than a link.

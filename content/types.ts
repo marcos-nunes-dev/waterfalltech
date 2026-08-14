@@ -164,6 +164,42 @@ export type Zenda = {
   };
 };
 
+/**
+ * Documento juridico — politica de privacidade, termos de uso.
+ *
+ * Estruturado como dado e nao como MDX por dois motivos: o mesmo componente
+ * renderiza os dois documentos nos dois idiomas, e um sumario gerado a partir
+ * dos titulos nunca sai de sincronia com o corpo.
+ *
+ * `updatedAt` e ISO (`2026-08-14`) e aparece formatado por locale. A data e
+ * parte do documento, nao enfeite: e por ela que alguem sabe qual versao leu.
+ */
+export type LegalDoc = {
+  slug: string;
+  title: string;
+  updatedAt: string;
+  lede: string;
+  sections: {
+    id: string;
+    heading: string;
+    /** Paragrafos. Suporta **negrito** e nada mais — ver `renderInline`. */
+    body: string[];
+    /** Lista com marcador, quando ha itens de fato enumeraveis. */
+    list?: string[];
+  }[];
+};
+
+export type Legal = {
+  /** Rotulo do bloco no rodape. */
+  label: string;
+  /** "Ultima atualizacao" — o prefixo da data. */
+  updatedLabel: string;
+  /** Titulo do sumario lateral. */
+  tocLabel: string;
+  privacy: LegalDoc;
+  terms: LegalDoc;
+};
+
 export type Contact = {
   headline: HeadlineParts;
   body: string;
@@ -243,6 +279,7 @@ export type Dictionary = {
   process: ProcessStep[];
   products: Product[];
   zenda: Zenda;
+  legal: Legal;
   contact: Contact;
   studio: Studio;
   nextSlot: NextSlot;

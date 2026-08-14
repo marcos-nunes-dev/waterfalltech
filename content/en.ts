@@ -35,6 +35,7 @@ import type {
   WorkItem,
   Zenda,
 } from "./types";
+import { legalEn } from "@/content/legal/en";
 
 const site: SiteInfo = {
   name: "Waterfall",
@@ -567,6 +568,7 @@ export const en: Dictionary = {
   process,
   products,
   zenda,
+  legal: legalEn,
   contact,
   studio,
   nextSlot,

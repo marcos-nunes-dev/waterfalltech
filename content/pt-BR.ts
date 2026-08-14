@@ -16,6 +16,7 @@
  * ========================================================================= */
 
 import type { Dictionary } from "./types";
+import { legalPtBR } from "@/content/legal/pt-BR";
 
 /** Um lugar só para o endereço, usado no `site` e no CTA de contato. */
 const EMAIL = "hello@waterfalltech.xyz";
@@ -438,6 +439,8 @@ export const ptBR: Dictionary = {
       },
     ],
   },
+
+  legal: legalPtBR,
 
   /* ------------------------------------------------------------------------ */
   /*  CONTATO                                                                 */

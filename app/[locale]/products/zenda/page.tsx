@@ -8,11 +8,10 @@ import { ZendaHow } from "@/components/zenda/zenda-how";
 import { ZendaNav } from "@/components/zenda/zenda-nav";
 import { ZendaProblem } from "@/components/zenda/zenda-problem";
 import { ZendaShowcase } from "@/components/zenda/zenda-showcase";
-import { productPath } from "@/lib/domain";
+import { productUrl } from "@/lib/domain";
 import {
   getDict,
   isLocale,
-  localePath,
   localeTags,
   locales,
   type Locale,
@@ -44,20 +43,23 @@ export async function generateMetadata({
   const active: Locale = isLocale(locale) ? locale : "en";
 
   const product = dict.products.find((p) => p.slug === SLUG) ?? dict.products[0];
-  const path = localePath(active, productPath(SLUG));
+  // O endereco canonico e o SUBDOMINIO, nao o caminho do apex onde esta pagina
+  // renderiza. O apex 308 para ca (proxy.ts); apontar o canonical para o lugar
+  // de onde a Meta redireciona seria mandar o crawler para um redirect.
+  const url = productUrl(SLUG, active);
 
   return {
     title: dict.zenda.name,
     description: dict.zenda.lede,
     alternates: {
-      canonical: path,
+      canonical: url,
       // Same reasoning as the root layout: tell Google which language belongs
       // to which URL so the two locales don't compete as duplicate content.
       languages: {
         ...Object.fromEntries(
-          locales.map((l) => [localeTags[l], localePath(l, productPath(SLUG))]),
+          locales.map((l) => [localeTags[l], productUrl(SLUG, l)]),
         ),
-        "x-default": localePath("en", productPath(SLUG)),
+        "x-default": productUrl(SLUG, "en"),
       },
     },
     openGraph: {
@@ -65,7 +67,7 @@ export async function generateMetadata({
       siteName: dict.site.name,
       title: `${dict.zenda.name} — ${product.tagline}`,
       description: dict.zenda.lede,
-      url: `${dict.site.url}${path}`,
+      url,
       locale: localeTags[active].replace("-", "_"),
     },
   };

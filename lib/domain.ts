@@ -38,6 +38,45 @@ export function productSubdomain(slug: string): string {
   return `https://${slug}.${site.domain}`;
 }
 
+/**
+ * The product's canonical address, per locale:
+ *   https://zenda.waterfalltech.xyz/pt-BR
+ *
+ * The subdomain is the product's real address; `/products/<slug>` on the apex
+ * is where it renders internally and now 308s here (see proxy.ts). Canonical
+ * tags, the sitemap and OpenGraph all read this, so there is one answer to
+ * "where does this page live" instead of three that can drift.
+ */
+export function productUrl(slug: string, locale: string): string {
+  return `${productSubdomain(slug)}/${locale}`;
+}
+
+/**
+ * True only on the production site — not on a preview deployment, not in dev.
+ *
+ * Vercel sets `VERCEL_ENV`; the `NEXT_PUBLIC_` twin is the one that survives
+ * into the client bundle, and this has to work in both because the footer is a
+ * server component and the nav is not.
+ */
+const IS_PRODUCTION_SITE = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
+
+/**
+ * The href to use for an internal link to a product.
+ *
+ * On the live site: the subdomain, so a click lands on the canonical address
+ * directly instead of bouncing through a redirect.
+ *
+ * Anywhere else — local dev, and Vercel previews — a relative apex path. A
+ * preview that linked to the absolute subdomain would throw whoever is
+ * reviewing it out of the preview and into production, which is exactly the
+ * moment you do not want to leave.
+ */
+export function productHref(slug: string, locale: string): string {
+  return IS_PRODUCTION_SITE
+    ? productUrl(slug, locale)
+    : `/${locale}${productPath(slug)}`;
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Host parsing                                                              */
 /* -------------------------------------------------------------------------- */
@@ -71,6 +110,21 @@ function normalizeHost(host: string | null | undefined): string | null {
   if (hostname.endsWith(".")) hostname = hostname.slice(0, -1);
 
   return hostname || null;
+}
+
+/**
+ * True only for the live apex — `waterfalltech.xyz` or `www.` of it.
+ *
+ * Governs whether the apex product path 308s to the subdomain. Deciding from
+ * the HOST rather than from an env var is what keeps every environment honest:
+ * on localhost and on a preview deployment the apex path keeps rendering the
+ * page in place, so `npm run dev` does not bounce a developer out to the
+ * production site — which is what happened the first time this was wired.
+ */
+export function isProductionApex(host: string | null | undefined): boolean {
+  const hostname = normalizeHost(host);
+  if (!hostname) return false;
+  return hostname === site.domain || hostname === `www.${site.domain}`;
 }
 
 /** `waterfalltech.xyz` itself, or anything under it (`staging.waterfalltech.xyz`). */

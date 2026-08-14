@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { en } from "@/content/en";
-import { productPath } from "@/lib/domain";
+import { productUrl } from "@/lib/domain";
 import {
   defaultLocale,
   localePath,
@@ -22,9 +22,9 @@ import {
  * never compete as duplicate content. `x-default` points at English, matching
  * the canonical alternates in app/[locale]/layout.tsx.
  *
- * Products are listed at their canonical apex path (`/products/zenda`), not at
- * `zenda.<domain>`. The subdomain is the same document served through a
- * rewrite; pointing crawlers at one address keeps the two from competing.
+ * Products are listed at their SUBDOMAIN (`zenda.<domain>/<locale>`), which is
+ * their canonical address — the apex path 308s there. Listing the apex path
+ * would point crawlers at a redirect.
  *
  * Content comes from the English dictionary because slugs and the origin are
  * routing facts, identical in every locale — nothing read here is translated.
@@ -37,24 +37,33 @@ function absolute(locale: Locale, path: string): string {
   return `${site.url}${localePath(locale, path)}`;
 }
 
-/** Every locale's address for one path, keyed by hreflang. */
-function languagesFor(path: string) {
-  return {
-    ...Object.fromEntries(
-      locales.map((locale) => [localeTags[locale], absolute(locale, path)]),
-    ),
-    "x-default": absolute(defaultLocale, path),
-  };
-}
+/** Home lives on the apex; each product lives on its own subdomain. */
+type Entry = { url: (locale: Locale) => string; priority: number };
 
-/** The locale-agnostic paths worth crawling, with their relative weight. */
-const ROUTES = [
-  { path: "/", priority: 1 },
+const ROUTES: Entry[] = [
+  { url: (locale) => absolute(locale, "/"), priority: 1 },
   ...products.map((product) => ({
-    path: productPath(product.slug),
+    url: (locale: Locale) => productUrl(product.slug, locale),
     priority: 0.8,
   })),
+  // Baixa prioridade e alta necessidade: ninguem procura a politica no Google,
+  // mas ela precisa ser rastreavel — o App Review da Meta verifica se o
+  // endereco publicado responde.
+  ...(["privacy", "terms"] as const).map((doc) => ({
+    url: (locale: Locale) => absolute(locale, `/legal/${doc}`),
+    priority: 0.3,
+  })),
 ];
+
+/** Every locale's address for one entry, keyed by hreflang. */
+function languagesForEntry(entry: Entry) {
+  return {
+    ...Object.fromEntries(
+      locales.map((locale) => [localeTags[locale], entry.url(locale)]),
+    ),
+    "x-default": entry.url(defaultLocale),
+  };
+}
 
 /**
  * `new Date()` is evaluated inside the function, so it becomes the build
@@ -63,13 +72,13 @@ const ROUTES = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return ROUTES.flatMap(({ path, priority }) =>
+  return ROUTES.flatMap((entry) =>
     locales.map((locale) => ({
-      url: absolute(locale, path),
+      url: entry.url(locale),
       lastModified,
       changeFrequency: "monthly" as const,
-      priority,
-      alternates: { languages: languagesFor(path) },
+      priority: entry.priority,
+      alternates: { languages: languagesForEntry(entry) },
     })),
   );
 }

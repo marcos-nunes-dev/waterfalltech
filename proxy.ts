@@ -68,7 +68,13 @@
  * ========================================================================= */
 
 import { NextResponse, type NextRequest } from "next/server";
-import { productPath, productSlugFromHost } from "@/lib/domain";
+import {
+  isProductionApex,
+  isProductSlug,
+  productPath,
+  productSlugFromHost,
+  productUrl,
+} from "@/lib/domain";
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
 
 /** Set by the language switcher; an explicit choice outranks the browser. */
@@ -120,6 +126,30 @@ function localeFromPath(pathname: string): Locale | null {
   return isLocale(first) ? first : null;
 }
 
+/**
+ * A product address reached on the APEX — the shape that now has to move.
+ *
+ *   /products/zenda           -> { slug: "zenda", rest: "" }
+ *   /pt-BR/products/zenda     -> { slug: "zenda", rest: "" }
+ *   /en/products/zenda/beta   -> { slug: "zenda", rest: "/beta" }
+ *
+ * Returns null for anything that is not a product path, so the apex branch
+ * below keeps its existing behaviour untouched.
+ */
+function apexProductPath(
+  pathname: string,
+): { slug: string; rest: string } | null {
+  const segments = pathname.split("/").filter(Boolean);
+  const offset = isLocale(segments[0]) ? 1 : 0;
+
+  if (segments[offset] !== "products") return null;
+  const slug = segments[offset + 1];
+  if (!slug || !isProductSlug(slug)) return null;
+
+  const tail = segments.slice(offset + 2);
+  return { slug, rest: tail.length ? `/${tail.join("/")}` : "" };
+}
+
 export function proxy(request: NextRequest) {
   // The Host header is what the browser actually asked for. `nextUrl.host` is
   // the fallback for runtimes that normalise the header away.
@@ -146,6 +176,32 @@ export function proxy(request: NextRequest) {
     url.pathname = target;
     const response = NextResponse.rewrite(url);
     // Content differs by language even though the URL does not.
+    response.headers.set("Vary", "Accept-Language, Cookie");
+    return response;
+  }
+
+  /* --- 1b. Apex product path: the product lives on its own subdomain ------ */
+  //
+  // The subdomain is the canonical address; `/products/<slug>` is only where it
+  // renders internally. A 308 (not 302) because this is permanent and must not
+  // change the method — and because search engines transfer ranking on it.
+  //
+  // No loop: the branch above returns before this one whenever the host is a
+  // product subdomain, and its `rewrite` is internal — Next does not re-run the
+  // proxy on a rewritten request.
+  // Só no apex de produção: em dev e em preview a página continua renderizando
+  // aqui, senão `npm run dev` jogaria quem clica no link para o site publicado.
+  const apexProduct = isProductionApex(host) ? apexProductPath(pathname) : null;
+  if (apexProduct) {
+    const locale = pathLocale ?? detectLocale(request);
+    const target = new URL(
+      `${productUrl(apexProduct.slug, locale)}${apexProduct.rest}`,
+    );
+    // A shared link may carry query params (utm_*, ?ref=). Dropping them on a
+    // redirect silently breaks whoever is measuring the campaign.
+    target.search = request.nextUrl.search;
+
+    const response = NextResponse.redirect(target, 308);
     response.headers.set("Vary", "Accept-Language, Cookie");
     return response;
   }

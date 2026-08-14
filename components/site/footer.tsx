@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import type { Dictionary, Section } from "@/content/types";
+import { productHref } from "@/lib/domain";
 import { localePath, type Locale } from "@/lib/i18n";
 import { cn, pad } from "@/lib/utils";
 
@@ -127,7 +128,7 @@ export function Footer({
               {products.map((product) => (
                 <li key={product.slug}>
                   <Link
-                    href={localePath(locale, `/products/${product.slug}`)}
+                    href={productHref(product.slug, locale)}
                     className="group flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-ink-300 transition-colors duration-300 hover:text-ink-50"
                   >
                     <span>{product.name}</span>
@@ -140,6 +141,24 @@ export function Footer({
             </ul>
           </div>
 
+          {/* Legal. A quarta coluna do rodape existe porque estes documentos
+              precisam ser encontraveis de qualquer pagina — e porque o App
+              Review da Meta exige que politica e termos estejam acessiveis. */}
+          <div className="col-span-12 sm:col-span-4 lg:col-span-2 lg:col-start-11">
+            <h2 className="label">{dict.legal.label}</h2>
+            <ul className="mt-6 flex flex-col gap-3.5">
+              {(["privacy", "terms"] as const).map((slug) => (
+                <li key={slug}>
+                  <Link
+                    href={localePath(locale, `/legal/${slug}`)}
+                    className="text-sm text-ink-300 transition-colors duration-300 hover:text-ink-50"
+                  >
+                    {dict.legal[slug].title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar — metadata only, plus the language switch for a reader
