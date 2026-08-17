@@ -82,19 +82,23 @@ export function Studio({
                 </div>
               ))}
 
-              <div className="flex items-baseline justify-between gap-x-6 border-b py-3">
-                <dt className="label shrink-0">{ui.social}</dt>
-                <dd className="flex min-w-0 flex-col items-end">
-                  {site.socials.map((social) => (
-                    <ArrowLink
-                      key={social.label}
-                      href={localePath(locale, social.href)}
-                    >
-                      {social.label}
-                    </ArrowLink>
-                  ))}
-                </dd>
-              </div>
+              {/* Sem contas, sem linha: um rotulo "Social" com nada ao lado le
+                  como carregamento que falhou. */}
+              {site.socials.length === 0 ? null : (
+                <div className="flex items-baseline justify-between gap-x-6 border-b py-3">
+                  <dt className="label shrink-0">{ui.social}</dt>
+                  <dd className="flex min-w-0 flex-col items-end">
+                    {site.socials.map((social) => (
+                      <ArrowLink
+                        key={social.label}
+                        href={localePath(locale, social.href)}
+                      >
+                        {social.label}
+                      </ArrowLink>
+                    ))}
+                  </dd>
+                </div>
+              )}
             </dl>
           </Reveal>
         </div>

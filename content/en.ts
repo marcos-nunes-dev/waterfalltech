@@ -53,12 +53,10 @@ const site: SiteInfo = {
   coverage: "UTC−3 · overlapping US & EU hours",
   cnpj: "42.804.319/0001-10",
   founded: 2021,
-  socials: [
-    /** PLACEHOLDER — delete any you don't have. */
-    { label: "LinkedIn", href: "https://linkedin.com/company/waterfall" },
-    { label: "GitHub", href: "https://github.com/waterfall" },
-    { label: "X", href: "https://x.com/waterfall" },
-  ],
+  socials: [],  // Vazio ate existirem contas reais: os placeholders
+    // apontavam para perfis de OUTRAS pessoas — github.com/waterfall
+    // e o usuario de alguem, e um analista da Meta que clica ali sai
+    // do site para o perfil de um estranho.
 };
 
 /* -------------------------------------------------------------------------- */
