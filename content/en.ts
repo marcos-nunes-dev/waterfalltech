@@ -409,18 +409,36 @@ const zenda: Zenda = {
         body: "Sorted by who needs attention first: dropped connection, missing card at Meta, quality slipping, payment overdue. What breaks on its own shows up before the doctor calls to complain.",
       },
       {
-        id: "patients",
-        src: "/zenda/pacientes.png",
-        alt: "Zenda patient list for one clinic, sorted by return date, with overdue and due-soon labels",
-        title: "Who is due back",
-        body: "Each client's patient list, opening on whoever is most overdue. Nothing to register: it fills itself with whoever has already messaged that number.",
+        id: "booking",
+        src: "/zenda/marcar.png",
+        alt: "A conversation open in Zenda with the booking panel beside it, showing the day's free slots and a series of four sessions",
+        title: "Book without leaving the chat",
+        body: "The patient asks to reschedule and the answer comes from the same screen. You filter by what she can do, weekday and time of day, read two slots out loud and confirm. For a course of treatment you book the whole series at once, and the taken dates show up before you confirm, not after.",
       },
       {
-        id: "record",
-        src: "/zenda/ficha.png",
-        alt: "Zenda patient record with return interval, logged procedures, notes and history",
-        title: "The patient record",
-        body: "Return interval, procedures already performed, notes only your team can see, and the history of visits and conversations. Changes save themselves — a save button on a note is the one you forget to press.",
+        id: "schedule",
+        src: "/zenda/agenda.png",
+        alt: "A client's schedule tab in Zenda, with the weekly availability grid painted in and exceptions on specific dates",
+        title: "Each doctor's schedule",
+        body: "Every client has their own availability: days, hours, appointment length and more than one location. Holidays, time off and a Saturday clinic go in as an exception on a single date, without touching the routine that repeats.",
+      },
+    ],
+  },
+
+  agenda: {
+    kicker: "The schedule",
+    headline: { before: "The part that only makes sense", accent: "in motion", after: "" },
+    lede: "These two blocks are not images. They are the product's own components, running here on the page.",
+    blocks: [
+      {
+        title: "Availability paints itself",
+        alt: "A weekly availability grid filling in, mornings first, then afternoons, then Saturday",
+        body: "Click and drag across the week. You can say the doctor sees patients Tuesday and Thursday mornings at one practice and Wednesday afternoons at another, with a different appointment length at each. A form with seven time fields would take all afternoon.",
+      },
+      {
+        title: "The slot comes out of the conversation",
+        alt: "The booking panel filtering by weekday and time of day, picking a slot and building a four-session series",
+        body: "She says she can only do mornings, Tuesday or Thursday. You tick both days, pick morning, and the list is already answering. Need to squeeze her into a full slot because the doctor made an exception? There is a box for that, and it adds her to the block instead of replacing whoever was already there.",
       },
     ],
   },
@@ -429,7 +447,7 @@ const zenda: Zenda = {
   how: [
     { step: "Connect", body: "The doctor authorises with their own Meta account, and the number stays theirs. Nothing changes for the patient: same number as always, and WhatsApp Business on the phone keeps working exactly as before. If they allow it, that number's earlier conversations come across too." },
     { step: "Handle", body: "Every conversation in one list, tagged by client, with your own labels and a warning for anyone who has been waiting too long. The patient record opens beside it, with everything you already know." },
-    { step: "Bring them back", body: "Log what was done and the return date sets itself. Every day the list shows who is overdue and who is due soon — and the work stops depending on somebody's memory." },
+    { step: "Book", body: "Each doctor's schedule lives in Zenda: days, hours, appointment length and locations. You book inside the conversation itself, write what it is about, and for a course of treatment you leave the whole series scheduled at once." },
   ],
 
   faq: [

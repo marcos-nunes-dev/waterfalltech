@@ -387,18 +387,36 @@ export const ptBR: Dictionary = {
           body: "Ordenados por quem precisa de atenção primeiro: conexão caída, cartão faltando na conta da Meta, qualidade em queda, mensalidade em atraso. O que quebra sozinho aparece antes de o médico ligar reclamando.",
         },
         {
-          id: "patients",
-          src: "/zenda/pacientes.png",
-          alt: "Lista de pacientes de uma clínica no Zenda, ordenada por data de retorno, com etiquetas de vencido e a vencer",
-          title: "Quem está para voltar",
-          body: "A lista de pacientes de cada cliente, aberta por quem está mais vencido. Não há cadastro a fazer: ela se preenche com quem já mandou mensagem para aquele número.",
+          id: "booking",
+          src: "/zenda/marcar.png",
+          alt: "Conversa aberta no Zenda com o painel de marcar consulta ao lado, mostrando os horários livres do dia e uma série de quatro sessões",
+          title: "Marcar sem sair da conversa",
+          body: "A paciente pede para remarcar e a resposta sai da mesma tela. Você filtra pelo que ela pode, dia da semana e período, lê dois horários em voz alta e confirma. Se for tratamento, marca a série inteira de uma vez, e as datas ocupadas aparecem antes de você confirmar, não depois.",
         },
         {
-          id: "record",
-          src: "/zenda/ficha.png",
-          alt: "Ficha de paciente do Zenda com intervalo de retorno, procedimentos registrados, anotações e histórico",
-          title: "A ficha do paciente",
-          body: "Intervalo de retorno, procedimentos já feitos, anotações que só a sua equipe vê e o histórico de consultas e conversas. As alterações salvam sozinhas — botão de salvar em anotação é o que se esquece de clicar.",
+          id: "schedule",
+          src: "/zenda/agenda.png",
+          alt: "Aba de agenda de um cliente no Zenda, com a grade semanal de disponibilidade pintada e as exceções em datas específicas",
+          title: "A agenda de cada médico",
+          body: "Cada cliente tem a própria disponibilidade: dias, horários, duração da consulta e mais de um local. Férias, feriado e mutirão de sábado entram como exceção numa data só, sem mexer na rotina que se repete.",
+        },
+      ],
+    },
+
+    agenda: {
+      kicker: "A agenda",
+      headline: { before: "A parte que só faz sentido", accent: "em movimento", after: "" },
+      lede: "Estes dois blocos não são imagem: são os componentes do produto, rodando aqui na página.",
+      blocks: [
+        {
+          title: "A disponibilidade se pinta",
+          alt: "Grade semanal de disponibilidade sendo preenchida, das manhãs às tardes e depois o sábado",
+          body: "Clique e arraste sobre a semana. Dá para dizer que o médico atende terça e quinta de manhã em um consultório e quarta à tarde em outro, com duração de consulta diferente em cada um. Um formulário com sete campos de hora levaria a tarde inteira.",
+        },
+        {
+          title: "O horário sai da conversa",
+          alt: "Painel de marcar consulta filtrando por dia e período, escolhendo um horário e montando uma série de quatro sessões",
+          body: "Ela diz que só pode de manhã, terça ou quinta. Você marca os dois dias, escolhe manhã, e a lista já nasce respondendo. Precisa encaixar em cima de um horário cheio porque o médico abriu exceção? Tem uma caixa para isso, e ela soma a paciente ao bloco em vez de trocar quem já estava.",
         },
       ],
     },
@@ -407,7 +425,7 @@ export const ptBR: Dictionary = {
     how: [
       { step: "Conectar", body: "O médico autoriza pela conta Meta dele, e o número continua sendo dele. Nada muda para o paciente: mesmo número de sempre, e o WhatsApp Business no celular continua funcionando igual. Se ele autorizar, as conversas anteriores daquele número vêm junto." },
       { step: "Atender", body: "Todas as conversas numa lista, com etiqueta de cliente, tags do seu jeito de organizar e o aviso de quem está esperando há tempo demais. A ficha do paciente abre do lado, com o que já sabemos dele." },
-      { step: "Trazer de volta", body: "Registre o que foi feito e a data de retorno fica marcada sozinha. Todo dia a lista mostra quem venceu e quem vence em breve — e o trabalho deixa de depender da memória de alguém." },
+      { step: "Marcar", body: "A agenda de cada médico fica no Zenda: dias, horários, duração e locais. Você marca a consulta dentro da própria conversa, escreve o assunto e, quando é tratamento, deixa a série inteira agendada de uma vez." },
     ],
 
     faq: [

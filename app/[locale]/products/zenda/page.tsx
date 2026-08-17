@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/site/footer";
+import { ZendaAgenda } from "@/components/zenda/zenda-agenda";
 import { ZendaCta } from "@/components/zenda/zenda-cta";
 import { ZendaFaq } from "@/components/zenda/zenda-faq";
 import { ZendaFeatures } from "@/components/zenda/zenda-features";
@@ -91,6 +92,7 @@ export default async function ZendaPage({
         <ZendaProblem {...props} />
         <ZendaFeatures {...props} />
         <ZendaShowcase {...props} />
+        <ZendaAgenda {...props} />
         <ZendaHow {...props} />
         <ZendaFaq {...props} />
         <ZendaCta {...props} />

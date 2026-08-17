@@ -162,6 +162,18 @@ export type Zenda = {
       body: string;
     }[];
   };
+  /** A secao que roda os componentes do produto em vez de mostrar captura. */
+  agenda: {
+    kicker: string;
+    headline: HeadlineParts;
+    lede: string;
+    blocks: {
+      title: string;
+      /** Descricao para leitor de tela: o bloco vivo nao tem texto alternativo. */
+      alt: string;
+      body: string;
+    }[];
+  };
 };
 
 /**
