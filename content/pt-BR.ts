@@ -337,7 +337,7 @@ export const ptBR: Dictionary = {
     problem: {
       kicker: "O problema",
       headline: { before: "Cinco celulares, nenhuma", accent: "memória", after: "" },
-      body: "Quem cuida da agenda de vários médicos faz isso em várias contas de WhatsApp, quase sempre em aparelhos diferentes. Pior que a troca de tela é o que não fica registrado: o paciente que veio em março e deveria voltar em setembro não volta, porque ninguém lembra — e ninguém lembra porque não existe onde anotar. Cada retorno perdido é dinheiro que o seu cliente não faz e serviço que você não pode cobrar.",
+      body: "Quem cuida da agenda de vários médicos faz isso em várias contas de WhatsApp, quase sempre em aparelhos diferentes. Pior que a troca de tela é o que não fica registrado: a consulta combinada por mensagem que nunca entrou em agenda nenhuma. Cada horário perdido é dinheiro que o seu cliente não faz e serviço que você não pode cobrar.",
     },
 
     featuresHeader: {
@@ -353,12 +353,12 @@ export const ptBR: Dictionary = {
       {
         id: "patients",
         title: "Uma ficha que se preenche sozinha",
-        body: "O paciente nasce da conversa: chegou uma mensagem, o número virou uma ficha. Você anota o que descobrir — prefere manhã, vem com a filha, alérgica a látex — e o histórico de consultas, procedimentos e conversas fica junto. A ficha é por cliente: o que você anota para um médico não aparece na tela do outro.",
+        body: "O paciente nasce da conversa: chegou uma mensagem, o número virou uma ficha. Você anota o que descobrir — prefere manhã, vem com a filha, alérgica a látex — e o histórico de consultas e conversas fica junto. A ficha é por cliente: o que você anota para um médico não aparece na tela do outro.",
       },
       {
         id: "returns",
-        title: "Quem está para voltar",
-        body: "Cada procedimento tem o intervalo de retorno do consultório, e cada paciente pode ter o dele. Registrou o atendimento, a data de volta já fica marcada. A lista abre por quem está mais vencido: “venceu há 7 meses”, “volta em 20 dias”. É a diferença entre esperar o paciente lembrar e ligar antes.",
+        title: "A agenda de cada médico",
+        body: "Dias, horários, duração da consulta e mais de um local, por cliente. Você marca de dentro da conversa: filtra pelo que a paciente pode, escolhe o horário e confirma. Tratamento com oito sessões vira uma série marcada de uma vez, com os conflitos aparecendo antes de você confirmar.",
       },
       {
         id: "clients",

@@ -375,12 +375,12 @@ const zenda: Zenda = {
     {
       id: "patients",
       title: "A record that fills itself in",
-      body: "The patient is born from the conversation: a message arrives, the number becomes a record. You note what you learn — prefers mornings, comes with her daughter, latex allergy — and the history of visits, procedures and conversations sits alongside it. Records are per client: what you write for one doctor never shows on another's screen.",
+      body: "The patient is born from the conversation: a message arrives, the number becomes a record. You note what you learn — prefers mornings, comes with her daughter, latex allergy — and the history of visits and conversations sits alongside it. Records are per client: what you write for one doctor never shows on another's screen.",
     },
     {
       id: "returns",
-      title: "Who is due back",
-      body: "Each procedure carries the practice's return interval, and each patient can carry their own. Log the visit and the return date is already set. The list opens on whoever is most overdue: “7 months overdue”, “due in 20 days”. It's the difference between waiting for the patient to remember and calling first.",
+      title: "Each doctor's schedule",
+      body: "Days, hours, appointment length and more than one location, per client. You book from inside the conversation: filter by what the patient can do, pick the slot, confirm. A course of eight sessions becomes one series booked at once, with the clashes shown before you confirm.",
     },
     {
       id: "clients",
