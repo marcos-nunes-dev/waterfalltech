@@ -329,7 +329,7 @@ export const ptBR: Dictionary = {
     // ("O WhatsApp de todas as clínicas em um lugar") quebrava em quatro linhas
     // e jogava os CTAs para baixo da dobra. O "WhatsApp" aparece logo no lede.
     headline: { before: "Todas as clínicas em", accent: "uma", after: "tela" },
-    lede: "O Zenda é onde trabalha quem cuida da agenda de vários médicos. Conecte o WhatsApp Business de cada cliente, atenda todos os pacientes numa lista só — e saiba quem precisa voltar antes de o paciente sumir.",
+    lede: "O Zenda é onde trabalha quem cuida da agenda de vários médicos. Conecte o WhatsApp Business de cada cliente, atenda todos os pacientes numa lista só e saiba quem precisa voltar antes de o paciente sumir.",
     primaryCta: { label: "Pedir acesso", href: "#access" },
     secondaryCta: { label: "Ver por dentro", href: "#showcase" },
     status: { label: "Beta privado", detail: "Onboarding de um grupo pequeno de operações" },
@@ -348,12 +348,12 @@ export const ptBR: Dictionary = {
       {
         id: "inbox",
         title: "Todos os pacientes numa lista só",
-        body: "Conecte a conta de WhatsApp Business de cada médico ou clínica que você atende. Toda conversa cai na mesma fila, com a etiqueta de quem é — porque responder em nome do médico errado é o único erro que não dá para desfazer. Quem está esperando há três horas aparece diferente de quem escreveu agora.",
+        body: "Conecte a conta de WhatsApp Business de cada médico ou clínica que você atende. Toda conversa cai na mesma fila, com a etiqueta de quem é, porque responder em nome do médico errado é o único erro que não dá para desfazer. Quem está esperando há três horas aparece diferente de quem escreveu agora.",
       },
       {
         id: "patients",
         title: "Uma ficha que se preenche sozinha",
-        body: "O paciente nasce da conversa: chegou uma mensagem, o número virou uma ficha. Você anota o que descobrir — prefere manhã, vem com a filha, alérgica a látex — e o histórico de consultas e conversas fica junto. A ficha é por cliente: o que você anota para um médico não aparece na tela do outro.",
+        body: "O paciente nasce da conversa: chegou uma mensagem, o número virou uma ficha. Você anota o que descobrir (prefere manhã, vem com a filha, alérgica a látex) e o histórico de consultas e conversas fica junto. A ficha é por cliente: o que você anota para um médico não aparece na tela do outro.",
       },
       {
         id: "returns",
@@ -363,7 +363,7 @@ export const ptBR: Dictionary = {
       {
         id: "clients",
         title: "Seus clientes, do seu lado",
-        body: "Quanto você cobra de cada médico e em que dia vence. Se o WhatsApp de algum deles caiu ou está sem forma de pagamento na Meta — o caso silencioso em que o número conecta e não envia. E quantos pacientes cada um deu no mês, que é o número que sustenta a conversa sobre reajuste.",
+        body: "Quanto você cobra de cada médico e em que dia vence. Se o WhatsApp de algum deles caiu ou está sem forma de pagamento na Meta, o caso silencioso em que o número conecta e não envia. E quantos pacientes cada um deu no mês, que é o número que sustenta a conversa sobre reajuste.",
       },
     ],
 
@@ -431,27 +431,27 @@ export const ptBR: Dictionary = {
     faq: [
       {
         q: "Usa a API oficial do WhatsApp Business?",
-        a: "Sim, exclusivamente a Cloud API oficial da Meta. Bibliotecas não oficiais são proibidas no nosso código — e não é preciosismo: elas violam os termos da Meta e o risco é o banimento do número do médico, que é o ativo mais crítico do consultório. Conectamos por Coexistence: o WhatsApp Business no celular dele continua funcionando normalmente, o número não muda e o paciente não percebe diferença. Se o médico autorizar no momento da conexão, as conversas anteriores daquele número vêm junto.",
+        a: "Sim, exclusivamente a Cloud API oficial da Meta. Bibliotecas não oficiais são proibidas no nosso código, e não é preciosismo: elas violam os termos da Meta e o risco é o banimento do número do médico, que é o ativo mais crítico do consultório. Conectamos por Coexistence: o WhatsApp Business no celular dele continua funcionando normalmente, o número não muda e o paciente não percebe diferença. Se o médico autorizar no momento da conexão, as conversas anteriores daquele número vêm junto.",
       },
       {
         q: "Quem paga a Meta pelas mensagens?",
-        a: "O dono do número — o médico ou a clínica —, no CNPJ dele. É regra da Meta para o nosso tipo de parceria, não escolha nossa: a conta de cobrança fica com quem é dono do número. Desde julho de 2026 a cobrança no Brasil é em reais, faturada pela Facebook Brasil. Na prática costuma ser pouco, e o médico vê o próprio gasto quando quiser. Se ele preferir não cadastrar cartão, dá para você ser administradora da conta dele e usar o seu, embutindo o custo na sua mensalidade — o número continua sendo dele, e ele te remove quando quiser.",
+        a: "O dono do número, médico ou clínica, no CNPJ dele. É regra da Meta para o nosso tipo de parceria, não escolha nossa: a conta de cobrança fica com quem é dono do número. Desde julho de 2026 a cobrança no Brasil é em reais, faturada pela Facebook Brasil. Na prática costuma ser pouco, e o médico vê o próprio gasto quando quiser. Se ele preferir não cadastrar cartão, dá para você ser administradora da conta dele e usar o seu, embutindo o custo na sua mensalidade. O número continua sendo dele, e ele te remove quando quiser.",
       },
       {
         q: "O que acontece com os dados dos pacientes?",
-        a: "Ficam separados por cliente, não juntos num balaio. A ficha é por par (cliente, paciente): a mesma pessoa atendida por dois médicos tem duas fichas, e a anotação de um nunca aparece na tela do outro — cada médico é o controlador dos dados dos pacientes dele. Corpo de mensagem e anotação clínica não vão para log, monitoramento ou relatório de erro. Não fazemos nenhum cruzamento de dado de saúde entre clientes, nem para métrica interna. E quando você perde um cliente, os dados daquele médico saem: o mapa de dados vive num documento público do projeto, com base legal e prazo de retenção por tabela.",
+        a: "Ficam separados por cliente, não juntos num balaio. A ficha é por par (cliente, paciente): a mesma pessoa atendida por dois médicos tem duas fichas, e a anotação de um nunca aparece na tela do outro. Cada médico é o controlador dos dados dos pacientes dele. Corpo de mensagem e anotação clínica não vão para log, monitoramento ou relatório de erro. Não fazemos nenhum cruzamento de dado de saúde entre clientes, nem para métrica interna. E quando você perde um cliente, os dados daquele médico saem: o mapa de dados vive num documento público do projeto, com base legal e prazo de retenção por tabela.",
       },
       {
         q: "Quantos clientes uma pessoa consegue tocar?",
-        a: "O produto não impõe limite: a caixa é uma só e o filtro por cliente serve para focar, não para navegar. O limite real é o de mensagens da Meta, que é por conta de cada cliente — e como cada um tem a conta dele, o volume de um não come a cota do outro, nem a reputação de um derruba a entrega dos demais. Ainda não temos número do beta para prometer, e preferimos não inventar um.",
+        a: "O produto não impõe limite: a caixa é uma só e o filtro por cliente serve para focar, não para navegar. O limite real é o de mensagens da Meta, que é por conta de cada cliente, e como cada um tem a conta dele, o volume de um não come a cota do outro, nem a reputação de um derruba a entrega dos demais. Ainda não temos número do beta para prometer, e preferimos não inventar um.",
       },
       {
         q: "Já dá para usar?",
-        a: "Estamos em beta privado, com um grupo pequeno de operações. A conexão de números novos depende da aprovação do nosso aplicativo pela Meta, que é um processo dela e não nosso — por isso o acesso sai por lista, e a gente conduz a primeira conexão junto com você, por telefone. Peça acesso e a gente diz onde está a fila.",
+        a: "Estamos em beta privado, com um grupo pequeno de operações. A conexão de números novos depende da aprovação do nosso aplicativo pela Meta, que é um processo dela e não nosso. Por isso o acesso sai por lista, e a gente conduz a primeira conexão junto com você, por telefone. Peça acesso e a gente diz onde está a fila.",
       },
       {
         q: "Quem faz o Zenda?",
-        a: "A Waterfall — a consultoria. O Zenda saiu de ver o mesmo problema em clínica atrás de clínica: agendar não é difícil, difícil é fazer isso em cinco contas de WhatsApp e lembrar de quem tinha que voltar.",
+        a: "A Waterfall, a consultoria. O Zenda saiu de ver o mesmo problema em clínica atrás de clínica: agendar não é difícil, difícil é fazer isso em cinco contas de WhatsApp e lembrar de quem tinha que voltar.",
       },
     ],
   },

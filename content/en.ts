@@ -351,7 +351,7 @@ const products: Product[] = [
 const zenda: Zenda = {
   name: "Zenda",
   headline: { before: "Every clinic on", accent: "one", after: "screen" },
-  lede: "Zenda is where you work if you run the schedule for several doctors. Connect each client's WhatsApp Business account, answer every patient from a single list — and know who is due back before the patient disappears.",
+  lede: "Zenda is where you work if you run the schedule for several doctors. Connect each client's WhatsApp Business account, answer every patient from a single list and know who is due back before the patient disappears.",
   primaryCta: { label: "Request access", href: "#access" },
   secondaryCta: { label: "See inside", href: "#showcase" },
   status: { label: "Private beta", detail: "Onboarding a small group of practices" },
@@ -359,7 +359,7 @@ const zenda: Zenda = {
   problem: {
     kicker: "The problem",
     headline: { before: "Five phones, no", accent: "memory", after: "" },
-    body: "Running the schedule for several doctors means several WhatsApp accounts, usually on different handsets. Worse than the switching is what never gets written down: the patient seen in March who should return in September doesn't, because nobody remembers — and nobody remembers because there is nowhere to note it. Every missed return is revenue your client doesn't earn and work you can't bill for.",
+    body: "Running the schedule for several doctors means several WhatsApp accounts, usually on different handsets. Worse than the switching is what never gets written down: the appointment agreed by message that never made it into any calendar. Every lost slot is revenue your client doesn't earn and work you can't bill for.",
   },
 
   featuresHeader: {
@@ -370,12 +370,12 @@ const zenda: Zenda = {
     {
       id: "inbox",
       title: "Every patient in one list",
-      body: "Connect the WhatsApp Business account of each doctor or clinic you serve. Every conversation lands in the same queue, labelled with whose it is — answering on behalf of the wrong doctor is the one mistake you cannot undo. Someone waiting three hours looks different from someone who just wrote.",
+      body: "Connect the WhatsApp Business account of each doctor or clinic you serve. Every conversation lands in the same queue, labelled with whose it is, because answering on behalf of the wrong doctor is the one mistake you cannot undo. Someone waiting three hours looks different from someone who just wrote.",
     },
     {
       id: "patients",
       title: "A record that fills itself in",
-      body: "The patient is born from the conversation: a message arrives, the number becomes a record. You note what you learn — prefers mornings, comes with her daughter, latex allergy — and the history of visits and conversations sits alongside it. Records are per client: what you write for one doctor never shows on another's screen.",
+      body: "The patient is born from the conversation: a message arrives, the number becomes a record. You note what you learn (prefers mornings, comes with her daughter, latex allergy) and the history of visits and conversations sits alongside it. Records are per client: what you write for one doctor never shows on another's screen.",
     },
     {
       id: "returns",
@@ -385,7 +385,7 @@ const zenda: Zenda = {
     {
       id: "clients",
       title: "Your clients, beside you",
-      body: "What you charge each doctor and when it falls due. Whether anyone's WhatsApp has dropped or is missing a payment method at Meta — the silent case where the number connects and doesn't send. And how many patients each one brought this month, which is the number that carries the conversation about your rate.",
+      body: "What you charge each doctor and when it falls due. Whether anyone's WhatsApp has dropped or is missing a payment method at Meta, the silent case where the number connects and doesn't send. And how many patients each one brought this month, which is the number that carries the conversation about your rate.",
     },
   ],
 
@@ -453,27 +453,27 @@ const zenda: Zenda = {
   faq: [
     {
       q: "Does it use the official WhatsApp Business API?",
-      a: "Yes, exclusively Meta's official Cloud API. Unofficial libraries are banned in our codebase — not out of purism: they breach Meta's terms, and the risk is the doctor's number being banned, which is the practice's most critical asset. We connect through Coexistence: WhatsApp Business on their phone keeps working, the number doesn't change, and the patient notices nothing. If the doctor allows it at connection time, that number's earlier conversations come across too.",
+      a: "Yes, exclusively Meta's official Cloud API. Unofficial libraries are banned in our codebase, and not out of purism: they breach Meta's terms, and the risk is the doctor's number being banned, which is the practice's most critical asset. We connect through Coexistence: WhatsApp Business on their phone keeps working, the number doesn't change, and the patient notices nothing. If the doctor allows it at connection time, that number's earlier conversations come across too.",
     },
     {
       q: "Who pays Meta for the messages?",
-      a: "The owner of the number — the doctor or the clinic — under their own company. That's Meta's rule for our type of partnership, not our choice: the billing account belongs to whoever owns the number. Since July 2026 billing in Brazil is in reais, invoiced by Facebook Brasil. In practice it tends to be small, and the doctor can see their own spend whenever they want. If they'd rather not add a card, you can be an administrator on their account and use yours, folding the cost into your monthly fee — the number stays theirs, and they can remove you at any time.",
+      a: "The owner of the number, doctor or clinic, under their own company. That's Meta's rule for our type of partnership, not our choice: the billing account belongs to whoever owns the number. Since July 2026 billing in Brazil is in reais, invoiced by Facebook Brasil. In practice it tends to be small, and the doctor can see their own spend whenever they want. If they'd rather not add a card, you can be an administrator on their account and use yours, folding the cost into your monthly fee. The number stays theirs, and they can remove you at any time.",
     },
     {
       q: "What happens to patient data?",
-      a: "It stays separated by client, not pooled. The record is per (client, patient) pair: the same person seen by two doctors has two records, and a note for one never appears on the other's screen — each doctor is the controller of their own patients' data. Message bodies and clinical notes never reach logs, monitoring or error reports. We run no cross-client aggregation of health data, not even for internal metrics. And when you lose a client, that doctor's data goes with them: the data map lives in a public project document, with legal basis and retention period per table.",
+      a: "It stays separated by client, not pooled. The record is per (client, patient) pair: the same person seen by two doctors has two records, and a note for one never appears on the other's screen. Each doctor is the controller of their own patients' data. Message bodies and clinical notes never reach logs, monitoring or error reports. We run no cross-client aggregation of health data, not even for internal metrics. And when you lose a client, that doctor's data goes with them: the data map lives in a public project document, with legal basis and retention period per table.",
     },
     {
       q: "How many clients can one person handle?",
-      a: "The product imposes no limit: there is one inbox, and filtering by client is for focus, not navigation. The real limit is Meta's messaging cap, which sits with each client's own account — so one client's volume never eats another's quota, and one client's reputation never drags down everyone else's delivery. We don't have a number from the beta yet, and we'd rather not invent one.",
+      a: "The product imposes no limit: there is one inbox, and filtering by client is for focus, not navigation. The real limit is Meta's messaging cap, which sits with each client's own account, so one client's volume never eats another's quota, and one client's reputation never drags down everyone else's delivery. We don't have a number from the beta yet, and we'd rather not invent one.",
     },
     {
       q: "Can I use it today?",
-      a: "We're in private beta with a small group of practices. Connecting new numbers depends on Meta approving our application, which is their process and not ours — so access goes out by list, and we run your first connection together, on a call. Request access and we'll tell you where the queue stands.",
+      a: "We're in private beta with a small group of practices. Connecting new numbers depends on Meta approving our application, which is their process and not ours. Access goes out by list, and we run your first connection together, on a call. Request access and we'll tell you where the queue stands.",
     },
     {
       q: "Who makes Zenda?",
-      a: "Waterfall — the consultancy. Zenda came out of seeing the same problem in clinic after clinic: booking isn't the hard part; doing it across five WhatsApp accounts and remembering who was due back is.",
+      a: "Waterfall, the consultancy. Zenda came out of seeing the same problem in clinic after clinic: booking isn't the hard part; doing it across five WhatsApp accounts and remembering who was due back is.",
     },
   ],
 };
