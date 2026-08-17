@@ -23,7 +23,7 @@ import { defaultLocale, getDict, locales } from "@/lib/i18n";
  * translated alt string, so the alt stays in the default locale.
  */
 const defaults = getDict(defaultLocale).site;
-export const alt = `${defaults.name} — ${defaults.tagline}`;
+export const alt = `${defaults.name}: ${defaults.tagline}`;
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

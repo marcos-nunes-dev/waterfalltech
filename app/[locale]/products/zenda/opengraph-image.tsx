@@ -17,7 +17,10 @@ import { defaultLocale, getDict, locales } from "@/lib/i18n";
  */
 
 const defaults = getDict(defaultLocale);
-export const alt = `${defaults.zenda.name} — ${defaults.zenda.lede}`;
+// `alt` e export de modulo, entao nao ve `params`: sai sempre no idioma padrao.
+export const alt = `${defaults.zenda.name}: ${
+  defaults.products.find((p) => p.slug === "zenda")?.tagline ?? ""
+}`;
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
