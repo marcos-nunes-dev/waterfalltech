@@ -55,7 +55,7 @@ export const legalPtBR: Legal = {
         body: [
           "**De quem usa o Zenda:** nome, e-mail, senha (guardada apenas como hash, nunca em texto), e registros de acesso.",
           "**Dos clientes da conta:** nome do médico ou da clínica, especialidade, CRM, telefone de contato, e os dados comerciais que a própria pessoa anota — valor combinado e dia de cobrança.",
-          "**Dos pacientes:** número de WhatsApp, nome de exibição, conteúdo das mensagens trocadas, datas e horários de consulta e o que a atendente registrar na ficha — procedimentos realizados, intervalo de retorno e anotações.",
+          "**Dos pacientes:** número de WhatsApp, nome de exibição, conteúdo das mensagens trocadas, datas e horários de consulta com o assunto que a atendente escrever nelas, e o que ela registrar na ficha: data de nascimento e anotações livres.",
         ],
         list: [
           "Conteúdo de mensagem e anotação de ficha são tratados como **dado sensível de saúde** (art. 5º II).",
@@ -313,7 +313,7 @@ export const legalPtBR: Legal = {
         id: "servico",
         heading: "O que o Zenda é",
         body: [
-          "Uma plataforma para atender pacientes por WhatsApp em nome de médicos e clínicas, organizar essas conversas num só lugar e registrar informações de acompanhamento — procedimentos realizados e data de retorno.",
+          "Uma plataforma para atender pacientes por WhatsApp em nome de médicos e clínicas, organizar essas conversas num só lugar e cuidar da agenda de cada médico: disponibilidade, marcação de consulta e o assunto de cada uma.",
           "**O que o Zenda não é:** não é prontuário eletrônico, não emite documento médico, não presta serviço de saúde e não substitui julgamento clínico. Também não emite nota fiscal, boleto nem processa pagamento entre você e seus clientes — o controle de cobrança é apenas um lembrete para você.",
         ],
       },

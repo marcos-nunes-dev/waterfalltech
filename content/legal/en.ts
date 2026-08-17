@@ -53,7 +53,7 @@ export const legalEn: Legal = {
         body: [
           "**From Zenda users:** name, email, password (stored only as a hash, never in plain text), and access records.",
           "**From the account's clients:** the doctor's or clinic's name, specialty, medical licence number, contact phone, and the commercial details the user records — agreed fee and billing day.",
-          "**From patients:** WhatsApp number, display name, the content of messages exchanged, appointment dates and times, and whatever the assistant records — procedures performed, return interval and notes.",
+          "**From patients:** WhatsApp number, display name, the content of messages exchanged, appointment dates and times together with whatever the assistant writes as the subject of each one, and what she records on the file: date of birth and free-form notes.",
         ],
         list: [
           "Message content and clinical notes are treated as **sensitive health data** (art. 5, II).",
@@ -313,7 +313,7 @@ export const legalEn: Legal = {
         id: "service",
         heading: "What Zenda is",
         body: [
-          "A platform for handling patient conversations over WhatsApp on behalf of doctors and clinics, keeping those conversations in one place, and recording follow-up information — procedures performed and return dates.",
+          "A platform for handling patient conversations over WhatsApp on behalf of doctors and clinics, keeping those conversations in one place, and running each doctor's schedule: availability, booking and the subject of each appointment.",
           "**What Zenda is not:** it is not an electronic medical record, it issues no medical documents, it provides no healthcare and it does not replace clinical judgement. It also issues no invoices and processes no payments between you and your clients — the billing view is a reminder for you, nothing more.",
         ],
       },
