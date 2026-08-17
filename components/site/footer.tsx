@@ -182,7 +182,7 @@ export function Footer({
               which collides on a second line. */}
           <p className="label leading-[1.45]">{site.coverage}</p>
           <p className="label text-ink-600">
-            {site.founded}—{year}
+            {site.founded}–{year}
           </p>
           <LanguageSwitcher locale={locale} label={ui.languageSwitcher} />
         </div>
