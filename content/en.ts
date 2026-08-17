@@ -392,21 +392,21 @@ const zenda: Zenda = {
   showcase: {
     kicker: "Inside",
     headline: { before: "Not a mockup. The", accent: "product", after: "running" },
-    lede: "The screens below come from Zenda in use, with demonstration data. No real patient appears here. The interface is in Brazilian Portuguese — Zenda runs on WhatsApp in Brazil, and that is who it is built for.",
+    lede: "The screens below come from Zenda in use, with demonstration data. No real patient appears here. The interface is in Brazilian Portuguese, because Zenda runs on WhatsApp in Brazil and that is who it is built for.",
     shots: [
       {
         id: "inbox",
         src: "/zenda/inbox.png",
         alt: "Zenda inbox showing patients from several clinics in one list, each tagged with its client",
         title: "The single inbox",
-        body: "Patients from all your clients in the same queue. Each row says which clinic the person belongs to, how long they have been waiting and how much is left of WhatsApp's 24-hour window — after it, only an approved template reopens the conversation.",
+        body: "Patients from all your clients in the same queue. Each row says which clinic the person belongs to, how long they have been waiting and how much is left of WhatsApp's 24-hour window. After it, only an approved template reopens the conversation.",
       },
       {
         id: "clients",
         src: "/zenda/clientes.png",
-        alt: "Zenda client table with billing, connection health and monthly patient volume",
+        alt: "Zenda client table with connection health, open conversations, monthly patient volume and billing",
         title: "Your clients",
-        body: "Sorted by who needs attention first: dropped connection, missing card at Meta, quality slipping, payment overdue. What breaks on its own shows up before the doctor calls to complain.",
+        body: "Sorted by who needs attention first. Dr. Rafael is at the top because his Meta account has no card on file: the number connects and does not send, and it is the failure nobody notices until a patient stops replying. Beside it, how many patients each doctor brought in this month, which is the number that carries the conversation about raising your fee.",
       },
       {
         id: "booking",

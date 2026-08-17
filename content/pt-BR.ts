@@ -377,14 +377,14 @@ export const ptBR: Dictionary = {
           src: "/zenda/inbox.png",
           alt: "Caixa de conversas do Zenda com pacientes de várias clínicas na mesma lista, cada um com a etiqueta do cliente",
           title: "A caixa unificada",
-          body: "Pacientes de todos os seus clientes na mesma fila. Cada linha diz de qual clínica a pessoa vem, há quanto tempo espera resposta e quanto falta da janela de 24 h do WhatsApp — depois dela, só um template aprovado reabre a conversa.",
+          body: "Pacientes de todos os seus clientes na mesma fila. Cada linha diz de qual clínica a pessoa vem, há quanto tempo espera resposta e quanto falta da janela de 24 h do WhatsApp. Depois dela, só um template aprovado reabre a conversa.",
         },
         {
           id: "clients",
           src: "/zenda/clientes.png",
-          alt: "Tabela de clientes do Zenda com cobrança, estado da conexão e volume de pacientes por mês",
+          alt: "Tabela de clientes do Zenda com estado da conexão, conversas abertas, pacientes do mês e cobrança",
           title: "Seus clientes",
-          body: "Ordenados por quem precisa de atenção primeiro: conexão caída, cartão faltando na conta da Meta, qualidade em queda, mensalidade em atraso. O que quebra sozinho aparece antes de o médico ligar reclamando.",
+          body: "Ordenados por quem precisa de atenção primeiro. O Dr. Rafael está no topo porque falta cartão na conta dele na Meta: o número conecta e não envia, e é o defeito que ninguém percebe até o paciente não responder. Ao lado, quantos pacientes cada médico deu no mês, que é o número que sustenta a conversa sobre reajuste.",
         },
         {
           id: "booking",
