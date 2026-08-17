@@ -51,7 +51,7 @@ export async function generateMetadata({
     metadataBase: new URL(dict.site.url),
     title: {
       default: `${dict.site.name} — ${dict.site.tagline}`,
-      template: `%s — ${dict.site.name}`,
+      template: `%s · ${dict.site.name}`,
     },
     description: dict.site.description,
     alternates: {

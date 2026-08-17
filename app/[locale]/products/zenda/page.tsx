@@ -66,7 +66,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: dict.site.name,
-      title: `${dict.zenda.name} — ${product.tagline}`,
+      title: `${dict.zenda.name}: ${product.tagline}`,
       description: dict.zenda.lede,
       url,
       locale: localeTags[active].replace("-", "_"),
