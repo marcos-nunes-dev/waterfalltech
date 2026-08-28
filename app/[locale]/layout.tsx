@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
+import { OrganizationSchema } from "@/components/site/organization-schema";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import {
   getDict,
@@ -100,6 +101,10 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full">
+        {/* Identificação da pessoa jurídica em JSON-LD. Aqui, e não em cada
+            página, porque este layout é a raiz de tudo o que o site serve —
+            home, páginas legais e a landing do Zenda no subdomínio. */}
+        <OrganizationSchema dict={dict} />
         <SmoothScroll />
         <a
           href="#main"

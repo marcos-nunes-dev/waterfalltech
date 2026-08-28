@@ -36,11 +36,17 @@ export const ptBR: Dictionary = {
     tagline: "Parceiro de engenharia para empresas que entregam",
     description:
       "A Waterfall é uma consultoria de tecnologia. Alocamos engenheiros sêniores dentro de times de produto nos EUA e na Europa — e construímos nossos próprios produtos.",
-    /** PLACEHOLDER — onde vocês ficam de fato, e os fusos que vocês cobrem. */
+    /** De onde o time trabalha. A sede registrada é outra coisa — logo abaixo. */
     base: "Rio de Janeiro, Brasil",
     coverage: "UTC−3 · horários sobrepostos com EUA e Europa",
+    /* Transcrito do cartão CNPJ — ver a nota em `SiteInfo`, em types.ts.
+       Não se traduz e não se arruma, em nenhum dos dois idiomas. */
+    legalName:
+      "MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME",
+    tradeName: "Waterfall Tech",
+    registeredOffice: "Curitiba, PR, Brasil",
     cnpj: "42.804.319/0001-10",
-    founded: 2021,
+    foundedAt: "2021-07-21",
     socials: [],  // Vazio ate existirem contas reais: os placeholders
       // apontavam para perfis de OUTRAS pessoas — github.com/waterfall
       // e o usuario de alguem, e um analista da Meta que clica ali sai
@@ -486,7 +492,14 @@ export const ptBR: Dictionary = {
           ", que é a parte do trabalho que muda como você constrói o próximo.",
       },
     },
-    ledger: { based: "Base", coverage: "Cobertura", founded: "Fundada em" },
+    ledger: {
+      legalName: "Razão social",
+      cnpj: "CNPJ",
+      office: "Sede",
+      based: "Base",
+      coverage: "Cobertura",
+      founded: "Fundada em",
+    },
     principles: [
       {
         title: "Senioridade em vez de headcount",

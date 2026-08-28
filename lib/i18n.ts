@@ -50,6 +50,34 @@ export function getDict(locale: string | undefined): Dictionary {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Dates                                                                     */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * `2026-08-14` in the reader's locale, without dragging in a date library.
+ *
+ * Lives here rather than in the one component that used to own it because two
+ * unrelated dates now need it — a legal document's effective date and the
+ * company's founding date — and the second one is checked against a public
+ * registry. Two copies of this function is two chances to be off by a day.
+ */
+export function formatDate(iso: string, locale: Locale): string {
+  const [year, month, day] = iso.split("-").map(Number);
+  // Constructed in UTC and read in UTC: `new Date("2026-08-14")` parses as
+  // midnight UTC, which in São Paulo is still the 13th. A legal document that
+  // reports the wrong effective date is a small error with a long tail.
+  return new Date(Date.UTC(year!, month! - 1, day!)).toLocaleDateString(
+    localeTags[locale],
+    { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" },
+  );
+}
+
+/** Just the year of an ISO date, for the copyright range in the footer. */
+export function yearOf(iso: string): number {
+  return Number(iso.slice(0, 4));
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Section helpers — the page spine, resolved per locale                     */
 /* -------------------------------------------------------------------------- */
 

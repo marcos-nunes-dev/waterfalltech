@@ -44,18 +44,49 @@ export type SiteInfo = {
   email: string;
   tagline: string;
   description: string;
+  /**
+   * De onde o time trabalha. NAO e a sede registrada — ver `registeredOffice`.
+   * Aparece na copy do estudio, onde a pergunta e "com quem eu vou falar e em
+   * que fuso", nao "quem responde juridicamente".
+   */
   base: string;
   coverage: string;
+  /* ---------------------------------------------------------------------- *
+   *  Identificacao da pessoa juridica
+   * ----------------------------------------------------------------------
+   *  Os quatro campos abaixo nao sao copy: sao a transcricao do registro na
+   *  Receita Federal, iguais nos dois idiomas. Existem no site porque a
+   *  verificacao de negocio da Meta compara o que esta na pagina com o
+   *  cartao CNPJ enviado no processo — nome ausente ou divergente e motivo
+   *  de reprovacao. Mudar qualquer um deles sem que o registro tenha mudado
+   *  quebra exatamente a validacao que eles servem para passar.
+   * ---------------------------------------------------------------------- */
   /**
-   * CNPJ da empresa, ja formatado.
-   *
-   * Fica em `site` e nao no dicionario de textos porque nao e copy: e o mesmo
-   * numero nos dois idiomas, e traduzir ou reformatar um identificador legal e
-   * como ele deixa de servir para o que existe. A sigla "CNPJ" tambem nao se
-   * traduz — e nome proprio de um registro brasileiro.
+   * Razao social, transcrita LETRA POR LETRA do cartao CNPJ: caixa alta, sem
+   * acento, com o sufixo de porte. Feio de proposito — o revisor procura esta
+   * string, nao uma versao arrumada dela. O nome da marca e `name`.
+   */
+  legalName: string;
+  /** Nome fantasia do registro. Em caixa normal: o `.label` ja versaliza. */
+  tradeName: string;
+  /**
+   * Sede no registro. Pode nao ser a cidade de onde o time trabalha (`base`),
+   * e quando divergem as duas precisam aparecer separadas e rotuladas — uma
+   * cidade so, contradizendo o documento, e o que faz o revisor parar.
+   */
+  registeredOffice: string;
+  /**
+   * CNPJ ja formatado. A sigla nao se traduz — e nome proprio de um registro
+   * brasileiro — e reformatar um identificador legal e como ele deixa de
+   * servir para o que existe.
    */
   cnpj: string;
-  founded: number;
+  /**
+   * Data de abertura, ISO. Unica fonte do ano de fundacao no site: o rodape e
+   * o ledger derivam dela, entao nao existe um "2021" solto para divergir do
+   * registro.
+   */
+  foundedAt: string;
   socials: { label: string; href: string }[];
 };
 
@@ -240,7 +271,19 @@ export type Studio = {
     /** Supports {base}. `emphasis` renders in italic serif. */
     second: { before: string; emphasis: string; after: string };
   };
-  ledger: { based: string; coverage: string; founded: string };
+  /**
+   * Rotulos das linhas do ledger. As tres primeiras identificam a pessoa
+   * juridica e as tres ultimas o estudio — a ordem no componente e essa, do
+   * registro para a operacao.
+   */
+  ledger: {
+    legalName: string;
+    cnpj: string;
+    office: string;
+    based: string;
+    coverage: string;
+    founded: string;
+  };
   principles: { title: string; body: string }[];
 };
 

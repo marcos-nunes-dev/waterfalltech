@@ -48,11 +48,17 @@ const site: SiteInfo = {
   tagline: "An engineering partner for companies that ship",
   description:
     "Waterfall is a technology consultancy. We embed senior engineers into product teams at companies across the US and Europe — and we build our own products.",
-  /** PLACEHOLDER — where you're actually based, and the timezones you cover. */
+  /** Where the team actually works. The registered office is separate, below. */
   base: "Rio de Janeiro, Brazil",
   coverage: "UTC−3 · overlapping US & EU hours",
+  /* Transcribed from the CNPJ record — see the note on SiteInfo in types.ts.
+     Not translated, not tidied up, in either locale. */
+  legalName:
+    "MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME",
+  tradeName: "Waterfall Tech",
+  registeredOffice: "Curitiba, PR, Brazil",
   cnpj: "42.804.319/0001-10",
-  founded: 2021,
+  foundedAt: "2021-07-21",
   socials: [],  // Vazio ate existirem contas reais: os placeholders
     // apontavam para perfis de OUTRAS pessoas — github.com/waterfall
     // e o usuario de alguem, e um analista da Meta que clica ali sai
@@ -505,7 +511,14 @@ const studio: Studio = {
         ", which is the part of the job that changes how you build the next one.",
     },
   },
-  ledger: { based: "Based", coverage: "Coverage", founded: "Founded" },
+  ledger: {
+    legalName: "Legal name",
+    cnpj: "CNPJ",
+    office: "Registered office",
+    based: "Based",
+    coverage: "Coverage",
+    founded: "Founded",
+  },
   principles: [
     {
       title: "Seniority over headcount",

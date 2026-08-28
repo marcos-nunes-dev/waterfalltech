@@ -1,7 +1,13 @@
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { ArrowLink, SectionHeader } from "@/components/ui/primitives";
 import type { Dictionary } from "@/content/types";
-import { localePath, sectionCopy, sectionIndex, type Locale } from "@/lib/i18n";
+import {
+  formatDate,
+  localePath,
+  sectionCopy,
+  sectionIndex,
+  type Locale,
+} from "@/lib/i18n";
 import { cn, interpolate, pad } from "@/lib/utils";
 
 /* --------------------------------------------------------------------------
@@ -30,10 +36,17 @@ export function Studio({
   const copy = sectionCopy(dict, "studio");
   const { statement } = studio;
 
+  /* Do registro para a operação: quem a empresa é no papel primeiro, onde ela
+     trabalha depois. As três primeiras linhas são a identificação da pessoa
+     jurídica — é a única aparição dela acima do rodapé, e existe porque um
+     revisor da Meta lendo a home tem de achar a razão social sem caçar. */
   const ledgerRows = [
+    { term: studio.ledger.legalName, value: site.legalName },
+    { term: studio.ledger.cnpj, value: site.cnpj },
+    { term: studio.ledger.office, value: site.registeredOffice },
     { term: studio.ledger.based, value: site.base },
     { term: studio.ledger.coverage, value: site.coverage },
-    { term: studio.ledger.founded, value: String(site.founded) },
+    { term: studio.ledger.founded, value: formatDate(site.foundedAt, locale) },
   ];
 
   return (
@@ -76,7 +89,10 @@ export function Studio({
                   className="flex items-baseline justify-between gap-x-6 border-b py-4"
                 >
                   <dt className="label shrink-0">{row.term}</dt>
-                  <dd className="min-w-0 text-right text-sm leading-snug text-ink-200">
+                  {/* `break-words`: a razão social tem 76 caracteres e nenhum
+                      espaço nos trechos longos — sem isso ela vaza da coluna
+                      no mobile em vez de quebrar. */}
+                  <dd className="min-w-0 text-right text-sm leading-snug text-pretty break-words text-ink-200">
                     {row.value}
                   </dd>
                 </div>

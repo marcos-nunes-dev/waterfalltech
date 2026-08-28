@@ -2,7 +2,7 @@ import Link from "next/link";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import type { Dictionary, Section } from "@/content/types";
 import { productHref } from "@/lib/domain";
-import { localePath, type Locale } from "@/lib/i18n";
+import { localePath, yearOf, type Locale } from "@/lib/i18n";
 import { cn, pad } from "@/lib/utils";
 
 /* --------------------------------------------------------------------------
@@ -43,6 +43,7 @@ export function Footer({
 }) {
   const { site, nav, sections, products, ui } = dict;
   const year = new Date().getFullYear();
+  const founded = yearOf(site.foundedAt);
 
   return (
     <footer className="relative rule-t">
@@ -174,18 +175,32 @@ export function Footer({
           <p className="label">
             © {year} {site.name}
           </p>
-          {/* Identificação da pessoa jurídica. Fica ao lado do copyright porque é
-              a mesma natureza de informação — quem responde pelo site — e porque
-              é ali que quem procura por ela olha primeiro. */}
-          <p className="label">CNPJ {site.cnpj}</p>
           {/* The only line here long enough to wrap; `label` is line-height:1,
               which collides on a second line. */}
           <p className="label leading-[1.45]">{site.coverage}</p>
           <p className="label text-ink-600">
-            {site.founded}–{year}
+            {founded}–{year}
           </p>
           <LanguageSwitcher locale={locale} label={ui.languageSwitcher} />
         </div>
+
+        {/* Identificação da pessoa jurídica: razão social, nome fantasia, CNPJ
+            e sede, na íntegra e em toda página do site — inclusive no subdomínio
+            do Zenda, que usa este mesmo rodapé.
+
+            Fica numa linha própria e não na barra acima porque a razão social
+            tem 76 caracteres: como item de um flex com `justify-between` ela
+            engole a barra inteira. Aqui embaixo, no tom mais quieto da página,
+            é metadado de registro — quem não procura por ele passa direto, e
+            quem procura (a verificação de negócio da Meta procura) acha.
+
+            `select-text` porque o caso de uso real é copiar daqui e colar no
+            formulário; `break-words` porque a string não tem onde quebrar num
+            viewport de 320px. */}
+        <p className="mt-6 label leading-[1.6] break-words select-text text-ink-600">
+          {site.legalName} ({site.tradeName}) · CNPJ {site.cnpj} ·{" "}
+          {site.registeredOffice}
+        </p>
       </div>
 
       {/* One last cascade. Full bleed, static, no animation — the page stops. */}

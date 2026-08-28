@@ -34,7 +34,7 @@ export const legalPtBR: Legal = {
         id: "quem-somos",
         heading: "Quem somos",
         body: [
-          "A Waterfall é uma consultoria de tecnologia brasileira, inscrita no CNPJ 42.804.319/0001-10, e desenvolvedora do **Zenda** — plataforma de atendimento a pacientes por WhatsApp usada por profissionais que administram a agenda de médicos e clínicas.",
+          "A Waterfall é o nome comercial de **MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME**, nome fantasia Waterfall Tech, inscrita no CNPJ 42.804.319/0001-10, com sede em Curitiba, PR. É uma consultoria de tecnologia brasileira e a desenvolvedora do **Zenda** — plataforma de atendimento a pacientes por WhatsApp usada por profissionais que administram a agenda de médicos e clínicas.",
           "Esta política vale para o site waterfalltech.xyz, para a página do produto em zenda.waterfalltech.xyz e para o uso do Zenda.",
         ],
       },
@@ -200,7 +200,7 @@ export const legalPtBR: Legal = {
         id: "contato",
         heading: "Contato",
         body: [
-          "Waterfall — CNPJ 42.804.319/0001-10 — Rio de Janeiro, Brasil.",
+          "MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME (Waterfall) — CNPJ 42.804.319/0001-10 — Curitiba, PR, Brasil.",
           "**Encarregado pelo tratamento de dados pessoais** (LGPD art. 41): Marcos Nunes — hello@waterfalltech.xyz. É o canal para dúvidas sobre esta política e para o exercício de direitos por quem tem relação direta conosco.",
           "**Pacientes devem procurar o médico ou a clínica que os atende**, que é o controlador e nomeia o próprio encarregado.",
           "**Autoridade Nacional de Proteção de Dados (ANPD):** gov.br/anpd",
@@ -287,7 +287,7 @@ export const legalPtBR: Legal = {
         id: "contato",
         heading: "Contato",
         body: [
-          "**hello@waterfalltech.xyz** — Waterfall, CNPJ 42.804.319/0001-10, Rio de Janeiro, Brasil.",
+          "**hello@waterfalltech.xyz** — MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME (Waterfall), CNPJ 42.804.319/0001-10, Curitiba, PR, Brasil.",
           "Encarregado pelo tratamento de dados pessoais: Marcos Nunes.",
           "Se preferir, você pode peticionar diretamente à **ANPD** (gov.br/anpd) — não é preciso passar por nós antes.",
         ],
@@ -306,7 +306,7 @@ export const legalPtBR: Legal = {
         heading: "Aceite",
         body: [
           "Ao criar uma conta ou usar o Zenda, você concorda com estes termos. Se estiver aceitando em nome de uma empresa, declara ter poderes para isso.",
-          "O Zenda é operado pela Waterfall, CNPJ 42.804.319/0001-10.",
+          "O Zenda é operado pela Waterfall — **MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME**, CNPJ 42.804.319/0001-10, com sede em Curitiba, PR.",
         ],
       },
       {
@@ -392,7 +392,7 @@ export const legalPtBR: Legal = {
         heading: "Disposições gerais",
         body: [
           "Alterações materiais nestes termos são comunicadas com 30 dias de antecedência a quem tem conta ativa.",
-          "Estes termos são regidos pelas leis brasileiras. Fica eleito o foro da comarca do Rio de Janeiro, salvo quando a lei garantir ao consumidor o foro do seu domicílio.",
+          "Estes termos são regidos pelas leis brasileiras. Fica eleito o foro da comarca de Curitiba, PR — sede da empresa —, salvo quando a lei garantir ao consumidor o foro do seu domicílio.",
           "Dúvidas: hello@waterfalltech.xyz",
         ],
       },

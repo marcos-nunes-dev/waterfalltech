@@ -31,7 +31,7 @@ export const legalEn: Legal = {
         id: "who-we-are",
         heading: "Who we are",
         body: [
-          "Waterfall is a Brazilian technology consultancy, registered under CNPJ 42.804.319/0001-10, and the developer of **Zenda** — a platform for handling patient conversations over WhatsApp, used by people who run the schedule for doctors and clinics.",
+          "Waterfall is the trading name of **MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME**, trading as Waterfall Tech, registered under CNPJ 42.804.319/0001-10 with its registered office in Curitiba, PR. It is a Brazilian technology consultancy and the developer of **Zenda** — a platform for handling patient conversations over WhatsApp, used by people who run the schedule for doctors and clinics.",
           "This policy covers waterfalltech.xyz, the product page at zenda.waterfalltech.xyz, and use of Zenda itself.",
           LANGUAGE_NOTE,
         ],
@@ -198,7 +198,7 @@ export const legalEn: Legal = {
         id: "contact",
         heading: "Contact",
         body: [
-          "Waterfall — CNPJ 42.804.319/0001-10 — Rio de Janeiro, Brazil.",
+          "MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME (Waterfall) — CNPJ 42.804.319/0001-10 — Curitiba, PR, Brazil.",
           "**Data protection officer** (LGPD art. 41): Marcos Nunes — hello@waterfalltech.xyz. This is the channel for questions about this policy and for rights exercised by anyone with a direct relationship with us.",
           "**Patients should contact the doctor or clinic treating them**, who is the controller and appoints their own officer.",
           "**National Data Protection Authority (ANPD):** gov.br/anpd",
@@ -286,7 +286,7 @@ export const legalEn: Legal = {
         id: "contact",
         heading: "Contact",
         body: [
-          "**hello@waterfalltech.xyz** — Waterfall, CNPJ 42.804.319/0001-10, Rio de Janeiro, Brazil.",
+          "**hello@waterfalltech.xyz** — MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME (Waterfall), CNPJ 42.804.319/0001-10, Curitiba, PR, Brazil.",
           "Data protection officer: Marcos Nunes.",
           "You may also petition Brazil's data protection authority, the **ANPD** (gov.br/anpd), directly — you do not have to come to us first.",
         ],
@@ -305,7 +305,7 @@ export const legalEn: Legal = {
         heading: "Acceptance",
         body: [
           "By creating an account or using Zenda you agree to these terms. If you accept on behalf of a company, you represent that you have authority to do so.",
-          "Zenda is operated by Waterfall, CNPJ 42.804.319/0001-10.",
+          "Zenda is operated by Waterfall — **MARCOS RENATO VOLPATO NUNES CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA - ME**, CNPJ 42.804.319/0001-10, registered office in Curitiba, PR.",
           LANGUAGE_NOTE,
         ],
       },
@@ -392,7 +392,7 @@ export const legalEn: Legal = {
         heading: "General",
         body: [
           "Material changes to these terms are notified 30 days in advance to active account holders.",
-          "These terms are governed by Brazilian law, with the courts of Rio de Janeiro as the agreed forum, except where the law grants a consumer the forum of their own domicile.",
+          "These terms are governed by Brazilian law, with the courts of Curitiba, PR — the company's registered office — as the agreed forum, except where the law grants a consumer the forum of their own domicile.",
           "Questions: hello@waterfalltech.xyz",
         ],
       },

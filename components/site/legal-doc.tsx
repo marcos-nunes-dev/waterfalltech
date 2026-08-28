@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/motion/reveal";
 import type { Dictionary, LegalDoc as Doc } from "@/content/types";
-import { localeTags, type Locale } from "@/lib/i18n";
+import { formatDate, type Locale } from "@/lib/i18n";
 import { pad } from "@/lib/utils";
 
 /* --------------------------------------------------------------------------
@@ -34,18 +34,6 @@ function renderInline(text: string): ReactNode[] {
     ) : (
       <span key={i}>{part}</span>
     ),
-  );
-}
-
-/** `2026-08-14` in the reader's locale, without dragging in a date library. */
-function formatDate(iso: string, locale: Locale): string {
-  const [year, month, day] = iso.split("-").map(Number);
-  // Constructed in UTC and read in UTC: `new Date("2026-08-14")` parses as
-  // midnight UTC, which in São Paulo is still the 13th. A legal document that
-  // reports the wrong effective date is a small error with a long tail.
-  return new Date(Date.UTC(year!, month! - 1, day!)).toLocaleDateString(
-    localeTags[locale],
-    { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" },
   );
 }
 
